@@ -1,17 +1,25 @@
 @font-face {
-  font-family: 'flow rounded';
+  font-family: "flow rounded";
   font-style: normal;
   font-weight: 400;
   src: url("./fonts/flow/flow-rounded.woff");
 }
 
 .is-loading-product {
-  font-family: flow rounded, Roboto, Helvetica Neue, sans-serif !important;
+  font-family:
+    flow rounded,
+    Roboto,
+    Helvetica Neue,
+    sans-serif !important;
   /* opacity: .5; */
 }
 
 .is-loading-product .mz-product-price {
-  font-family: flow rounded, Roboto, Helvetica Neue, sans-serif;
+  font-family:
+    flow rounded,
+    Roboto,
+    Helvetica Neue,
+    sans-serif;
 }
 
 img.aligncenter {
@@ -32,15 +40,18 @@ img.aligncenter {
   display: flex !important;
 }
 
-.mz-select-control.is-loading, .checkout-product-item-outer.is-loading {
+.mz-select-control.is-loading,
+.checkout-product-item-outer.is-loading {
   position: relative;
 }
 
-.mz-select-control.is-loading, .checkout-product-item-outer.is-loading:before {
+.mz-select-control.is-loading,
+.checkout-product-item-outer.is-loading:before {
   content: none;
 }
 
-.mz-select-control.is-loading, .checkout-product-item-outer.is-loading:before {
+.mz-select-control.is-loading,
+.checkout-product-item-outer.is-loading:before {
   content: "";
   /*background: hsla(0, 0%, 100%, .8) url('https://www.giaonhan247.com//wp-content/themes/giaonhan/static/dist/image/loading.gif') no-repeat center !important;*/
   position: absolute;
@@ -49,11 +60,14 @@ img.aligncenter {
   bottom: 0;
   top: 0;
   z-index: 3;
-  background-color: hsla(0, 0%, 100%, .4)
+  background-color: hsla(0, 0%, 100%, 0.4);
 }
 
-.mz-select-control.is-loading, .checkout-product-item-outer.is-loading2:before {
-  background: hsla(0, 0%, 100%, .8) url('https://www.giaonhan247.com//wp-content/themes/giaonhan/static/dist/image/loading.gif') no-repeat center !important;
+.mz-select-control.is-loading,
+.checkout-product-item-outer.is-loading2:before {
+  background: hsla(0, 0%, 100%, 0.8)
+    url("https://www.giaonhan247.com//wp-content/themes/giaonhan/static/dist/image/loading.gif")
+    no-repeat center !important;
 }
 
 .video-container {
@@ -63,7 +77,10 @@ img.aligncenter {
   overflow: hidden;
 }
 
-.video-container iframe, .video-container object, .video-container embed, .video-container video {
+.video-container iframe,
+.video-container object,
+.video-container embed,
+.video-container video {
   position: absolute;
   top: 0;
   left: 0;
@@ -123,7 +140,7 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-.disable-arrow[type=number] {
+.disable-arrow[type="number"] {
   -moz-appearance: textfield;
 }
 
@@ -132,6 +149,6 @@ input::-webkit-inner-spin-button {
 }
 
 button.is-disabled {
-  opacity: .5;
+  opacity: 0.5;
   cursor: not-allowed;
 }

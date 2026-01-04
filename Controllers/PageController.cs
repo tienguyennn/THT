@@ -10,11 +10,11 @@ namespace GlobalLinkConsulting.Mvc.Controllers
             if (string.IsNullOrEmpty(path))
             {
                 // return RedirectToAction("Index", "Home");
-                 return NotFound();
+                return NotFound();
             }
 
             // Normalize path for View lookup
-            
+
             // Remove trailing slash if present
             if (path.EndsWith("/"))
             {
@@ -35,7 +35,7 @@ namespace GlobalLinkConsulting.Mvc.Controllers
             // Basic check to see if view presumably exists (Controller can't easily check file system in all deploys, 
             // but we can try-catch the ViewEngine or just return View and let it 404 naturally? 
             // Better to standard return View and let framework handle if missing)
-            
+
             return View(viewPath);
         }
     }

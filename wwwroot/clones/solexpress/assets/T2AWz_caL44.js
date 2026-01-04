@@ -1,35 +1,1930 @@
-;/*FB_PKG_DELIM*/
+/*FB_PKG_DELIM*/
 
-__d("compareDOMOrder",[],(function(t,n,r,o,a,i){"use strict";function e(e,t){return e.compareDocumentPosition(t)&Node.DOCUMENT_POSITION_FOLLOWING?-1:1}i.default=e}),66);
-__d("useRefEffect",["react"],(function(t,n,r,o,a,i,l){"use strict";var e,s=e||(e=o("react")),u=s.useCallback,c=s.useRef;function d(e,t){var n=c(null);return u(function(t){n.current&&(n.current(),n.current=null),t!=null&&(n.current=e(t))},t)}l.default=d}),98);
-__d("createLayoutContext",["compareDOMOrder","emptyFunction","react","react-compiler-runtime","useRefEffect","useUnsafeRef_DEPRECATED"],(function(t,n,r,o,a,i,l){"use strict";var e,s,u=s||(s=o("react")),c=s,d=c.useContext,m=c.useImperativeHandle,p=c.useMemo,_=c.useReducer;function f(t){var n={getLayout:function(){return t},dispatch:r("emptyFunction"),nodes:new Map,values:[]},a=u.createContext(n);function i(e){var t=o("react-compiler-runtime").c(11),n=e.children,r=e.imperativeRef,i=e.value,l=y(),s=l[0],c=l[1],d=l[2],p,_;t[0]!==d?(p=function(){return{forceUpdate:function(){return d()}}},_=[d],t[0]=d,t[1]=p,t[2]=_):(p=t[1],_=t[2]),m(r,p,_);var f;t[3]!==d||t[4]!==s||t[5]!==i||t[6]!==c?(f={getLayout:i,dispatch:d,nodes:s,values:c},t[3]=d,t[4]=s,t[5]=i,t[6]=c,t[7]=f):f=t[7];var g=f,h;return t[8]!==n||t[9]!==g?(h=u.jsx(a.Provider,{value:g,children:n}),t[8]=n,t[9]=g,t[10]=h):h=t[10],h}function l(e){var t=o("react-compiler-runtime").c(2),r;return t[0]!==e?(r=u.jsx(a.Provider,babelHelpers.extends({value:n},e)),t[0]=e,t[1]=r):r=t[1],r}function s(n){var o=(e||(e=r("useUnsafeRef_DEPRECATED")))(null),i=d(a),l=i.getLayout,s=i.dispatch,u=i.nodes,c=i.values,m=p(function(){var e=o.current&&u.get(o.current),n=u.size;return e!=null?l({isFirst:e===0,isLast:e>=0&&e===n-1,index:e,total:n,values:c,nodes:u}):t},[l,u,c]),_=r("useRefEffect")(function(e){return o.current=e,s({add:e,value:n}),function(){o.current=null,s({remove:e})}},[s,n]);return[m,_]}function c(e){var t=o("react-compiler-runtime").c(4),n=s(e.value),r=n[0],a=n[1],i;return t[0]!==r||t[1]!==e.children||t[2]!==a?(i=e.children(r,a),t[0]=r,t[1]=e.children,t[2]=a,t[3]=i):i=t[3],i}return{Provider:i,Consumer:c,Resetter:l,useLayoutContext:s,_context:a}}function g(e,t){var n=e.node,o=t.node;return r("compareDOMOrder")(n,o)}function h(e,t){var n=Array.from(e);return t!=null&&(t.remove&&(n=e.filter(function(e){var n=e.node;return n!==t.remove})),t.add&&(n=n.filter(function(e){var n=e.node;return n!==t.add}).concat({node:t.add,value:t.value}))),n.sort(g)}function y(){var e=o("react-compiler-runtime").c(6),t;e[0]===Symbol.for("react.memo_cache_sentinel")?(t=[],e[0]=t):t=e[0];var n=_(h,t),r=n[0],a=n[1],i;if(e[1]!==r){var l=new Map,s=[];r.forEach(function(e,t){var n=e.node,r=e.value;l.set(n,t),s.push(r)}),i={nodes:l,values:s},e[1]=r,e[2]=i}else i=e[2];var u=i,c=u.nodes,d=u.values,m;return e[3]!==c||e[4]!==d?(m=[c,d,a],e[3]=c,e[4]=d,e[5]=m):m=e[5],m}l.default=f}),98);
-__d("BUIPrivateButtonLayoutContext",["createLayoutContext"],(function(t,n,r,o,a,i,l){"use strict";var e=r("createLayoutContext")({}),s=e;l.default=s}),98);
-__d("CometVisualCompletionConstants",["VisualCompletionConstants"],(function(t,n,r,o,a,i,l){"use strict";var e;l.default=e||(e=r("VisualCompletionConstants"))}),98);
-__d("DialogPosition",["Vector"],(function(t,n,r,o,a,i,l){var e=40,s;function u(t,n,o,a,i){o===void 0&&(o=null),a===void 0&&(a=!1),i===void 0&&(i=!1);var l=r("Vector").getViewportDimensions(),u=!1;if(a&&o&&(u=o+n>l.y),o!=null&&!u)return o;if(s)return s;var c=Math.floor(i?(l.y-n)/2:(l.x+t)*(l.y-n)/(4*l.x));return Math.max(c,e)}function c(e){s=e}l.calculateTopMargin=u,l.setFixedTopMargin=c}),98);
-__d("TabIsolation",["Event","Focus","Keys","TabbableElements","containsNode"],(function(t,n,r,o,a,i,l){var e=[],s=0,u=(function(){function t(t){var n=this;this.enable=function(){n.disable(),e.unshift(n.$2),n.$1=r("Event").listen(window,"keydown",function(t){e[0]===n.$2&&n.$4(t)},r("Event").Priority.URGENT)},this.disable=function(){if(n.$1){var t=e.indexOf(n.$2);t>-1&&e.splice(t,1),n.$1.remove(),n.$1=null}},this.$3=t,this.$1=null,this.$2=s++}var n=t.prototype;return n.$4=function(t){if(r("Event").getKeyCode(t)===r("Keys").TAB){var e=t.getTarget();if(e){var n=o("TabbableElements").find(this.$3),a=n[0],i=n[n.length-1],l=t.getModifiers(),s=l.shift;s&&e===a?(t.preventDefault(),o("Focus").set(i)):(!s&&e===i||!r("containsNode")(this.$3,e))&&(t.preventDefault(),o("Focus").set(a))}}},t})();l.default=u}),98);
-__d("LayerTabIsolation",["TabIsolation"],(function(t,n,r,o,a,i,l){var e=(function(){function e(e){this._layer=e,this._tabIsolation=null,this._subscriptions=null}var t=e.prototype;return t.enable=function(){var e=this._layer.getRoot();if(e!=null){var t=new(r("TabIsolation"))(e);this._tabIsolation=t,this._subscriptions=[this._layer.subscribe("show",t.enable.bind(t)),this._layer.subscribe("hide",t.disable.bind(t))]}},t.disable=function(){for(;this._subscriptions&&this._subscriptions.length;)this._subscriptions.pop().unsubscribe();this._tabIsolation&&this._tabIsolation.disable(),this._tabIsolation=null},e})();Object.assign(e.prototype,{_subscriptions:[]}),l.default=e}),98);
-__d("LayerTogglerContext",["Toggler"],(function(t,n,r,o,a,i){var e=(function(){"use strict";function e(e){this._layer=e}var t=e.prototype;return t.enable=function(){this._root=this._layer.getRoot(),n("Toggler").createInstance(this._root).setSticky(!1)},t.disable=function(){n("Toggler").destroyInstance(this._root),this._root=null},e})();a.exports=e}),null);
-__d("ScrollAwareDOM",["ArbiterMixin","CSS","DOM","DOMDimensions","HTML","Vector","ViewportBounds","getDocumentScrollElement","getElementPosition","getViewportDimensions","isAsyncScrollQuery","isNode"],(function(t,n,r,o,a,i,l){var e;function s(e,t){return function(){var n=arguments;m.monitor(arguments[e],function(){t.apply(null,n)})}}function u(e){e instanceof Array||(e=[e]);for(var t=0;t<e.length;t++){var n=r("HTML").replaceJSONWrapper(e[t]);if(n instanceof r("HTML"))return n.getRootNode();if(r("isNode")(n))return n}return null}function c(e){return r("getElementPosition")(e).y>r("ViewportBounds").getTop()}function d(e){var t=r("getElementPosition")(e).y+o("DOMDimensions").getElementDimensions(e).height,n=r("getViewportDimensions")().height-r("ViewportBounds").getBottom();return t>=n}var m=babelHelpers.extends({monitor:function(t,n){if(r("isAsyncScrollQuery")())return n();var e=u(t);if(e){var o=!!e.offsetParent;if(o&&(c(e)||d(e)))return n();var a=r("Vector").getDocumentDimensions(),i=n();if(o||e.offsetParent&&!c(e)){var l=r("Vector").getDocumentDimensions().sub(a),s={delta:l,target:e};m.inform("scroll",s)!==!1&&l.scrollElementBy(r("getDocumentScrollElement")())}return i}else return n()},replace:function(t,n){var e=u(n);return(!e||o("CSS").hasClass(e,"hidden_elem"))&&(e=t),m.monitor(e,function(){r("DOM").replace(t,n)})},prependContent:s(1,(e=r("DOM")).prependContent),insertAfter:s(1,e.insertAfter),insertBefore:s(1,e.insertBefore),setContent:s(0,e.setContent),appendContent:s(1,e.appendContent),remove:s(0,e.remove),empty:s(0,e.empty)},r("ArbiterMixin")),p=m;l.default=p}),98);
-__d("ModalLayer",["csx","cx","Arbiter","ArbiterMixin","CSS","CometVisualCompletionConstants","DOM","DOMDimensions","DOMQuery","DataStore","Event","Scroll","ScrollAwareDOM","Style","UserAgent","Vector","debounceAcrossTransitions","ge","getDocumentScrollElement","isAsyncScrollQuery","removeFromArray","setTimeout","setTimeoutAcrossTransitions"],(function(t,n,r,o,a,i,l,s,u){var e=[],c=null,d=null,m=null;function p(){return m||(m=o("DOMQuery").scry(document.body,"._li")[0]||r("ge")("FB4BResponsiveMain")),m}function _(e){var t={position:r("Vector").getScrollPosition(),listener:void 0},n=e.offsetTop-t.position.y;o("CSS").addClass(e,"_31e"),p().id!=="FB4BResponsiveMain"&&r("Style").set(e,"top",n+"px"),r("Arbiter").inform("reflow"),t.listener=r("ScrollAwareDOM").subscribe("scroll",function(n,a){if(o("DOMQuery").contains(e,a.target)){var i=e.offsetTop-a.delta.y;return r("Style").set(e,"top",i+"px"),t.position=t.position.add(a.delta),!1}return!0}),o("DataStore").set(e,"ModalLayerData",t)}function f(e,t){var n=o("DataStore").get(e,"ModalLayerData");if(n){var a=function(){if(o("CSS").removeClass(e,"_31e"),r("Style").set(e,"top",""),t){var a=r("getDocumentScrollElement")();o("Scroll").setTop(a,n.position.y),o("Scroll").getTop(a)!==n.position.y&&(o("Scroll").setTop(a,n.position.y+1),o("Scroll").setTop(a,n.position.y))}r("Arbiter").inform("reflow"),n.listener.unsubscribe(),n.listener=null,o("DataStore").remove(e,"ModalLayerData")};if(t&&r("isAsyncScrollQuery")()){var i=r("DOM").create("div",{className:"_42w"});r("Style").set(i,"height",e.offsetHeight+"px"),r("DOM").appendContent(document.body,i);var l=r("getDocumentScrollElement")();o("Scroll").setTop(l,n.position.y),t=!1,r("setTimeout")(function(){a(),r("DOM").remove(i)},0)}else a()}}function g(){var e=p();e!=null&&!o("CSS").matchesSelector(e,"._31e")&&_(e)}function h(){e.length||f(p(),!0)}function y(){for(var t=e.length;t--;){var n=e[t],r=n.getLayerRoot();if(r){C(r,0);var a=n.getLayerContentRoot();if(a){var i=a.offsetWidth+o("DOMDimensions").measureElementBox(a,"width",!1,!1,!0);C(r,i)}}}}function C(e,t){r("Style").set(e,"min-width",t+(t?"px":""))}var b=(function(){function t(e){this._layer=e,this._enabled=!1}var n=t.prototype;return n.enable=function(){var e=this;p()&&(this._subscription=this._layer.subscribe(["show","hide"],function(t){t=="show"?e._addModal():e._removeModal()}),this._layer.isShown()&&this._addModal(),this._enabled=!0)},n.disable=function(){p()&&(this._subscription&&this._subscription.unsubscribe(),this._layer.isShown()&&this._removeModal(),this._enabled=!1)},n._addModal=function(){var n=this.getLayerRoot();o("CSS").addClass(n,"_3qw"),this._layer.hasWash()&&(this._wash=r("DOM").create("div",{className:"_3ixn"}),r("DOM").prependContent(n,this._wash)),n&&this._layer._config.ignoreVC&&n.setAttribute(r("CometVisualCompletionConstants").ATTRIBUTE_NAME,r("CometVisualCompletionConstants").IGNORE);var a=e[e.length-1];a?_(a.getLayerRoot()):g();var i=r("getDocumentScrollElement")();if(o("Scroll").setTop(i,0),!e.length){var l=r("debounceAcrossTransitions")(y,100);c=r("Event").listen(window,"resize",l),d=r("Arbiter").subscribe("reflow",l)}e.push(this),t.inform("show",this),r("setTimeout")(y,0)},n._removeModal=function(){var n=this,a=this.getLayerRoot();o("CSS").removeClass(a,"_3qw"),this._layer.hasWash()&&(r("DOM").remove(this._wash),this._wash=null),C(a,0);var i=this===e[e.length-1];r("removeFromArray")(e,this),e.length||(c&&c.remove(),c=null,d&&d.unsubscribe(),d=null);var l,s;r("UserAgent").isBrowser("Safari")&&(l=r("Event").listen(document.documentElement,"mousewheel",r("Event").prevent),s=l.remove.bind(l)),r("setTimeoutAcrossTransitions")(function(){var o=e[e.length-1];o?(f(o.getLayerRoot(),i),t.inform("show",o)):(h(),t.inform("hide",n)),e.length&&r("setTimeout")(y,0),r("UserAgent").isBrowser("Safari")&&r("setTimeout")(function(){s()},0)},200)},n.getLayerRoot=function(){return this._enabled?this._layer.getRoot():null},n.getLayerContentRoot=function(){return this._enabled?this._layer.getContentRoot():null},t.getTopmostModalLayer=function(){return e[e.length-1]},t})();Object.assign(b,r("ArbiterMixin")),l.default=b}),98);
-__d("DialogX",["cx","fbt","Arbiter","CSS","DOMQuery","DialogPosition","Event","JSXDOM","Layer","LayerAutoFocus","LayerButtons","LayerFormHooks","LayerRefocusOnHide","LayerTabIsolation","LayerTogglerContext","ModalLayer","Style","Vector","debounce","getOrCreateDOMID","goURI","isTruthy","shield"],(function(t,n,r,o,a,i,l,s,u){var e=(function(e){function t(){return e.apply(this,arguments)||this}babelHelpers.inheritsLoose(t,e);var n=t.prototype;return n._configure=function(n,a){var t=this;e.prototype._configure.call(this,n,a);var i=this.getRoot();if(i!=null&&o("CSS").addClass(i,"_4-hy"),n.autohide)var l=this.subscribe("show",function(){l.unsubscribe(),window.setTimeout(r("shield")(t.hide,t),n.autohide)});if(n.redirectURI)var s=this.subscribe("hide",function(){s.unsubscribe();var e=n.redirectURI;e!=null&&r("goURI")(e)});this._fixedTopPosition=n.fixedTopPosition,this._ignoreFixedTopInShortViewport=n.ignoreFixedTopInShortViewport,this._isVerticallyCentered=n.isVerticallyCentered},n._getDefaultBehaviors=function(){return e.prototype._getDefaultBehaviors.call(this).concat([c,r("ModalLayer"),this._config.autofocus===!1?void 0:r("LayerAutoFocus"),r("LayerButtons"),r("LayerFormHooks"),r("LayerTabIsolation"),r("LayerTogglerContext"),r("LayerRefocusOnHide")].filter(r("isTruthy")))},n.hasWash=function(){var e;return(e=this._config.hasWash)!=null?e:!0},n._buildWrapper=function(t,n){var e=t.xui?"_4t2a":"_t _9l18",a=t.xui?"_59s7 _9l2g":"_1yv";this._innerContent=r("JSXDOM").div(null,n);var i={className:a,role:"dialog"};if(t.labelledBy)i["aria-labelledby"]=t.labelledBy;else if(t.label)i["aria-label"]=t.label;else if(t.titleID)i["aria-labelledby"]=t.titleID;else if(t.titleClass){var l=o("DOMQuery").scry(this._innerContent,t.titleClass);if(l.length){var s=r("getOrCreateDOMID")(l[0]);i["aria-labelledby"]=s}else i["aria-label"]=this._getDefaultLabel()}else i["aria-label"]=this._getDefaultLabel();var u={className:e};return t["data-testid"]&&(u["data-testid"]=t["data-testid"]),this._wrapper=r("JSXDOM").div(i,r("JSXDOM").div(u,this._innerContent)),t.width!=null&&this.setWidth(t.width),t.height!=null&&this.setHeight(t.height),r("JSXDOM").div({className:"_10"},this._wrapper)},n._getDefaultLabel=function(){return u._(/*BTDS*/"N\u1ed9i dung h\u1ed9p tho\u1ea1i")},n.getContentRoot=function(){return this._wrapper},n.getInnerContent=function(){return this._innerContent},n.updatePosition=function(){var e,t,n=r("Vector").getElementDimensions(this._wrapper),a=o("DialogPosition").calculateTopMargin(n.x,n.y,this._fixedTopPosition,(e=this._ignoreFixedTopInShortViewport)!=null?e:!1,(t=this._isVerticallyCentered)!=null?t:!1);return r("Style").set(this._wrapper,"margin-top",a+"px"),this.inform("update_position",{type:"DialogX",top:a}),!0},n.setWidth=function(t){if(t==="100%")this._width=void 0,r("Style").set(this._wrapper,"width","");else{if(t=Math.floor(t),t===this._width)return;this._width=t,r("Style").set(this._wrapper,"width",t+"px")}},n.getWidth=function(){return this._width},n.setHeight=function(t){t=Math.floor(t),t!==this._height&&(this._height=t,r("Style").set(this._wrapper,"height",t+"px"))},n.getFixedTopPosition=function(){return this._fixedTopPosition},n.shouldIgnoreFixedTopInShortViewport=function(){return this._ignoreFixedTopInShortViewport},t})(r("Layer")),c=(function(){function e(e){this._subscription=null,this._resize=null,this._layer=e}var t=e.prototype;return t.enable=function(){var e=this;this._subscription=this._layer.subscribe(["show","hide"],function(t){t==="show"?(e._attach(),r("Arbiter").inform("layer_shown",{type:"DialogX"})):(e._detach(),r("Arbiter").inform("layer_hidden",{type:"DialogX"}))})},t.disable=function(){var e;(e=this._subscription)==null||e.unsubscribe(),this._subscription=null,this._resize&&this._detach()},t._attach=function(){this._layer.updatePosition(),this._resize=r("Event").listen(window,"resize",r("debounce")(this._layer.updatePosition.bind(this._layer)))},t._detach=function(){var e;(e=this._resize)==null||e.remove(),this._resize=null},e})();l.default=e}),226);
-__d("GeoText.react",["GeoBaseText.react","GeoPrivateMakeComponent","react","react-compiler-runtime"],(function(t,n,r,o,a,i,l){"use strict";var e=["children","containerRef","display"],s,u=s||(s=o("react"));function c(t){var n=o("react-compiler-runtime").c(10),a,i,l,s;n[0]!==t?(a=t.children,i=t.containerRef,s=t.display,l=babelHelpers.objectWithoutPropertiesLoose(t,e),n[0]=t,n[1]=a,n[2]=i,n[3]=l,n[4]=s):(a=n[1],i=n[2],l=n[3],s=n[4]);var c=s===void 0?"inline":s,d;return n[5]!==a||n[6]!==i||n[7]!==c||n[8]!==l?(d=u.jsx(r("GeoBaseText.react"),babelHelpers.extends({color:"value",display:c,size:"value"},l,{ref:i,children:a})),n[5]=a,n[6]=i,n[7]=c,n[8]=l,n[9]=d):d=n[9],d}var d=o("GeoPrivateMakeComponent").makeGeoComponent("GeoText",c);l.default=d}),98);
-__d("LayerAutoFocusReact",["focusWithinLayer"],(function(t,n,r,o,a,i,l){"use strict";var e=(function(){function e(e){this._layer=e,this._subscription=null}var t=e.prototype;return t.enable=function(){var e=this;this._layer.containsReactComponent&&(this._subscription=this._layer.subscribe("reactshow",function(){return e._focus()}))},t.disable=function(){this._subscription&&(this._subscription.unsubscribe(),this._subscription=null)},t._focus=function(){var e=this._layer.getRoot();e&&r("focusWithinLayer")(e)},e})();l.default=e}),98);
-__d("LayerDestroyOnHide",["setTimeout"],(function(t,n,r,o,a,i,l){var e=(function(){function e(e){this.$2=null,this.$1=e}var t=e.prototype;return t.enable=function(){var e=this.$1.destroy.bind(this.$1);this.$2=this.$1.subscribe("hide",function(){r("setTimeout")(e,0)})},t.disable=function(){this.$2&&(this.$2.unsubscribe(),this.$2=null)},e})();l.default=e}),98);
-__d("LayerFadeOnHide",["invariant","CSSFade","Layer","SubscriptionsHandler","UserAgent_DEPRECATED","clearTimeout","setTimeoutAcrossTransitions"],(function(t,n,r,o,a,i,l,s){var e=(function(){function e(e){this.$1=e,this.$3=new(r("SubscriptionsHandler")),this.$2=null}var t=e.prototype;return t.enable=function(){o("UserAgent_DEPRECATED").ie()<9||(this.$2=this.$1.subscribe("starthide",this.$4.bind(this)))},t.disable=function(){this.$2&&(this.$2.unsubscribe(),this.$2=null),this.$3.release()},t.$5=function(){return 150},t.$4=function(){var e=this,t=!0,n=r("Layer").subscribe("show",function(){n.unsubscribe(),t=!1}),o=r("setTimeoutAcrossTransitions")(function(){n.unsubscribe(),n=null;var r=function(){e.$1.finishHide()};t?e.$6(r):r()},0);return this.$3.addSubscriptions({remove:function(){r("clearTimeout")(o)}}),!1},t.$6=function(t){var e=this.$1.getRoot();e!=null||s(0,70),r("CSSFade").hide(e,{callback:function(){t()},duration:this.$5()})},e.forDuration=function(n){return(function(e){function t(){return e.apply(this,arguments)||this}return babelHelpers.inheritsLoose(t,e),t})(e)},e})();l.default=e}),98);
-__d("LayerFadeOnShow",["Bootloader","Run","emptyFunction","ifRequired"],(function(t,n,r,o,a,i,l){var e=(function(){function e(e){this._layer=e,o("Run").onAfterLoad(function(){r("Bootloader").loadModules(["CSSFade"],r("emptyFunction"),"LayerFadeOnShow")})}var t=e.prototype;return t.enable=function(){var e=this;this._subscriptions=[this._layer.subscribe("show",function(){return e._animate()})]},t.disable=function(){if(this._subscriptions){for(;this._subscriptions.length;)this._subscriptions.pop().unsubscribe();this._subscriptions=null}},t._getDuration=function(){return 100},t._animate=function(){var e=this,t=this._layer.getRoot();r("ifRequired")("CSSFade",function(n){n.show(t,{duration:e._getDuration()})},function(){})},e.forDuration=function(n){var t=(function(e){function t(){return e.apply(this,arguments)||this}return babelHelpers.inheritsLoose(t,e),t})(e);return t.prototype._getDuration=r("emptyFunction").thatReturns(n),t},e})();Object.assign(e.prototype,{_subscriptions:null}),l.default=e}),98);
-__d("RTLKeys",["Keys","Locale"],(function(t,n,r,o,a,i,l){var e=null;function s(){return e===null&&(e=o("Locale").isRTL()),e}var u=babelHelpers.objectWithoutPropertiesLoose(r("Keys"),["RIGHT","LEFT"]),c=babelHelpers.extends({},u,{REAL_RIGHT:r("Keys").RIGHT,REAL_LEFT:r("Keys").LEFT,getLeft:function(){return s()?c.REAL_RIGHT:c.REAL_LEFT},getRight:function(){return s()?c.REAL_LEFT:c.REAL_RIGHT}}),d=c;l.default=d}),98);
-__d("XUIDialogBody.react",["cx","XUIText.react","joinClasses","react"],(function(t,n,r,o,a,i,l,s){var e,u=e||(e=o("react")),c=(function(e){function t(){return e.apply(this,arguments)||this}babelHelpers.inheritsLoose(t,e);var n=t.prototype;return n.render=function(){var e="_4-i2"+(this.props.useCustomPadding?"":" _pig");return u.jsx(r("XUIText.react"),babelHelpers.extends({},this.props,{className:r("joinClasses")(this.props.className,e),display:"block",size:this.props.fontSize,children:this.props.children}))},t})(u.Component);c.defaultProps={fontSize:"medium"},l.default=c}),98);
-__d("XUIButton.react",["cx","AbstractButton.react","XUISpinner.react","joinClasses","react"],(function(t,n,r,o,a,i,l,s){var e=["borderShade","loading","size","suppressed","use","buttonRef"],u,c=u||(u=o("react")),d="medium",m=(function(t){function n(){for(var e,n=arguments.length,r=new Array(n),o=0;o<n;o++)r[o]=arguments[o];return e=t.call.apply(t,[this].concat(r))||this,e.$1=c.createRef(),babelHelpers.assertThisInitialized(e)||babelHelpers.assertThisInitialized(e)}babelHelpers.inheritsLoose(n,t);var o=n.prototype;return o.focus=function(){this.$1.current!=null&&this.$1.current.focus()},o.render=function(){var t=this.props,n=t.borderShade,o=t.loading,a=t.size,i=t.suppressed,l=t.use,s=t.buttonRef,u=babelHelpers.objectWithoutPropertiesLoose(t,e),d="_4jy0"+(a==="small"?" _517i":"")+(a==="medium"?" _4jy3":"")+(a==="large"?" _4jy4":"")+(a==="xlarge"?" _4jy5":"")+(a==="xxlarge"?" _4jy6":"")+(l==="default"?" _517h":"")+(l==="confirm"?" _4jy1":"")+(l==="special"?" _4jy2":"")+(l==="caution"?" _9w8q":"")+(n==="light"?" _51sy":"")+(n==="dark"?" _9c6":"")+(i?" _59pe":"")+(l==="confirm"||l==="special"||l==="caution"?" selected":"");return c.jsx(r("AbstractButton.react"),babelHelpers.extends({},u,{label:o?c.jsx(r("XUISpinner.react"),{}):this.props.label,className:r("joinClasses")(this.props.className,d),ref:this.$1,buttonRef:s,disabled:!!this.props.disabled}))},n})(c.Component);m.defaultProps={use:"default",size:d,borderShade:"light",suppressed:!1},l.default=m}),98);
-__d("XUIDialogButton.react",["cx","XUIButton.react","joinClasses","react"],(function(t,n,r,o,a,i,l,s){var e=["action"],u,c=u||(u=o("react")),d=(function(t){function n(){return t.apply(this,arguments)||this}babelHelpers.inheritsLoose(n,t);var o=n.prototype;return o.render=function(){var t=this.props,n=t.action,o=babelHelpers.objectWithoutPropertiesLoose(t,e),a=(n==="confirm"?"layerConfirm":"")+(n==="cancel"?" layerCancel":"")+(n==="button"?" layerButton":""),i=this.props.href;return(n==="cancel"||n==="button"&&(i==null||i===""))&&(i="#"),c.jsx(r("XUIButton.react"),babelHelpers.extends({},o,{className:r("joinClasses")(this.props.className,a),href:i,role:"button"}))},n})(c.Component);l.default=d}),98);
-__d("XUIDialogCancelButton.react",["fbt","XUIDialogButton.react","react"],(function(t,n,r,o,a,i,l,s){var e,u=e||(e=o("react")),c=(function(e){function t(){return e.apply(this,arguments)||this}babelHelpers.inheritsLoose(t,e);var n=t.prototype;return n.render=function(){return u.jsx(r("XUIDialogButton.react"),babelHelpers.extends({},this.props,{action:"cancel",label:s._(/*BTDS*/"H\u1ee7y")}))},t})(u.Component);l.default=c}),226);
-__d("XUIOverlayFooter.react",["cx","joinClasses","react"],(function(t,n,r,o,a,i,l,s){var e,u=e||(e=o("react")),c=(function(e){function t(){return e.apply(this,arguments)||this}babelHelpers.inheritsLoose(t,e);var n=t.prototype;return n.render=function(){return u.jsx("div",babelHelpers.extends({},this.props,{className:r("joinClasses")(this.props.className,"_5lnf uiOverlayFooter"),children:this.props.children}))},t})(u.Component);l.default=c}),98);
-__d("XUIDialogFooter.react",["cx","LeftRight.react","XUIOverlayFooter.react","XUIText.react","joinClasses","react"],(function(t,n,r,o,a,i,l,s){var e=["children","leftContent"],u,c=u||(u=o("react")),d=(function(t){function n(){return t.apply(this,arguments)||this}babelHelpers.inheritsLoose(n,t);var o=n.prototype;return o.render=function(){var t="_5a8u"+(this.props.fullBleedBorder?" _27qq":""),n=this.props,o=n.children,a=n.leftContent,i=babelHelpers.objectWithoutPropertiesLoose(n,e);return c.jsx(r("XUIOverlayFooter.react"),babelHelpers.extends({},i,{className:r("joinClasses")(this.props.className,t),children:c.jsx(r("XUIText.react"),{display:"block",fontSize:this.props.fontSize,children:c.jsxs(r("LeftRight.react"),{children:[c.jsx("div",{children:a}),c.jsx("div",{children:o})]})})}))},n})(c.Component);d.defaultProps={fontSize:"medium"},l.default=d}),98);
-__d("XUIDialogOkayButton.react",["cx","fbt","XUIDialogButton.react","joinClasses","react"],(function(t,n,r,o,a,i,l,s,u){var e,c=e||(e=o("react")),d=(function(e){function t(){return e.apply(this,arguments)||this}babelHelpers.inheritsLoose(t,e);var n=t.prototype;return n.render=function(){return c.jsx(r("XUIDialogButton.react"),babelHelpers.extends({},this.props,{className:r("joinClasses")(this.props.className,"_2z1w"),action:this.props.action,label:u._(/*BTDS*/"OK")}))},t})(c.Component);l.default=d}),226);
-__d("XUIDialogTitle.react",["cx","fbt","LeftRight.react","XUICloseButton.react","joinClasses","react"],(function(t,n,r,o,a,i,l,s,u){var e=["closeButtonText","showCloseButton","closeButtonSize","closeButtonClassName"],c,d=c||(c=o("react")),m=(function(t){function n(){return t.apply(this,arguments)||this}babelHelpers.inheritsLoose(n,t);var o=n.prototype;return o.render=function(){var t=null,n=this.props,o=n.closeButtonText,a=n.showCloseButton,i=n.closeButtonSize,l=n.closeButtonClassName,s=babelHelpers.objectWithoutPropertiesLoose(n,e);a&&(t=d.jsx(r("XUICloseButton.react"),{size:i,"data-testid":void 0,label:o,className:r("joinClasses")(l,"layerCancel _51-t _9l15"),onClick:this.props.onCloseClick}));var u=d.Children.toArray(this.props.children);return d.jsx("div",babelHelpers.extends({},s,{className:r("joinClasses")(this.props.className,"_4-i0 _9l16"+(a?" _2gb3":"")),children:d.jsxs(r("LeftRight.react"),{children:[d.jsx("h3",{className:"_52c9 _9l17","data-hover":"tooltip","data-tooltip-display":"overflow",children:u[0]}),d.jsxs("div",{className:"_51-u",children:[u.slice(1),t]})]})}))},n})(d.Component);m.defaultProps={closeButtonText:u._(/*BTDS*/"\u0110\u00f3ng"),showCloseButton:!0,closeButtonSize:"medium"},l.default=m}),226);
-__d("SimpleXUIDialog",["cx","DialogX","LayerAutoFocusReact","LayerDestroyOnHide","LayerFadeOnHide","LayerFadeOnShow","LayerHideOnBlur","LayerHideOnEscape","LayerRefocusOnHide","XUIDialogBody.react","XUIDialogButton.react","XUIDialogCancelButton.react","XUIDialogFooter.react","XUIDialogOkayButton.react","XUIDialogTitle.react","joinClasses","react","uniqueID"],(function(t,n,r,o,a,i,l){"use strict";var e,s=e||(e=n("react")),u=445,c={show:function(t,r,o,a){var e=s.jsx(n("XUIDialogOkayButton.react"),{action:"cancel",use:"confirm"});return c.showEx(t,r,e,o,a)},showConfirm:function(t,r,o,a){var e=!1,i=s.jsx(n("XUIDialogOkayButton.react"),{action:"cancel",className:a&&a.autofocusConfirm?"autofocus":"",use:"confirm",onClick:function(){e=!0},"data-testid":void 0});a&&a.confirmBtnTxt&&(i=s.jsx(n("XUIDialogButton.react"),{className:n("joinClasses")(a&&a.autofocusConfirm?"autofocus":"","_2z1w"),action:"cancel",use:"confirm",label:a.confirmBtnTxt,onClick:function(){e=!0},"data-testid":void 0}));var l=s.jsxs("div",{children:[s.jsx(n("XUIDialogCancelButton.react"),{onClick:function(){e=!1},"data-testid":void 0}),i]});function u(){o&&o(e)}return c.showEx(t,r,l,u,a)},showEx:function(t,r,o,a,i){i=i||{};var e=[n("LayerDestroyOnHide"),n("LayerFadeOnShow"),n("LayerFadeOnHide"),n("LayerHideOnEscape"),n("LayerRefocusOnHide")];i.hideOnBlur!==!1&&e.push(n("LayerHideOnBlur")),i.useReactFocusBehavior&&e.push(n("LayerAutoFocusReact"));var l={width:i.width||u,xui:!0,addedBehaviors:e,causalElement:i.causalElement};if(r){var c=n("uniqueID")();l.titleID=c,r=s.jsx(n("XUIDialogTitle.react"),{showCloseButton:i.showCloseButton!==!1,id:c,children:r})}o&&(o=s.jsx(n("XUIDialogFooter.react"),{"data-testid":void 0,leftContent:i.leftContent,children:o}));var d=s.jsxs("div",{children:[r,s.jsx(n("XUIDialogBody.react"),{"data-testid":void 0,children:t}),o]}),m=new(n("DialogX"))(l,d);return a&&m.subscribe("hide",a),m.show(),m}};a.exports=c}),null);
-__d("TooltipMixinClass.react",["DOM","ReactDOM","TooltipData","react"],(function(t,n,r,o,a,i,l){var e,s=e||(e=o("react"));function u(e){var t=e.tooltip;return t!=null&&s.isValidElement(t)}var c=(function(e){function t(){for(var t,n=arguments.length,o=new Array(n),a=0;a<n;a++)o[a]=arguments[a];return t=e.call.apply(e,[this].concat(o))||this,t.state={tooltipContainer:u(t.props)?r("DOM").create("div"):null},t.refFromTooltipMixin=s.createRef(),babelHelpers.assertThisInitialized(t)||babelHelpers.assertThisInitialized(t)}babelHelpers.inheritsLoose(t,e),t.getDerivedStateFromProps=function(t,n){var e=u(t),a=n.tooltipContainer;if(a&&!e)return{tooltipContainer:null,root:void 0};if(!a&&e){var i=r("DOM").create("div"),l=o("ReactDOM").createRoot(i);return{tooltipContainer:i,root:l}}return null};var n=t.prototype;return n.componentDidMount=function(){this.$1()},n.componentDidUpdate=function(t,n){n.tooltipContainer&&!this.state.tooltipContainer&&this.$2(),this.$1()},n.$1=function(){var e=this.state.tooltipContainer,t=this.props.tooltip;if(t!=null&&s.isValidElement(t)&&e!=null){var n,r=function(){return t};(n=this.state.root)==null||n.render(s.jsx(r,{}))}else e=this.props.tooltip;e!=null&&this.refFromTooltipMixin.current!=null?o("TooltipData").set(this.refFromTooltipMixin.current,e,this.props.position,this.props.alignH):this.refFromTooltipMixin.current!=null&&o("TooltipData").remove(this.refFromTooltipMixin.current)},n.componentWillUnmount=function(){this.state.tooltipContainer&&this.$2(),this.refFromTooltipMixin.current!=null&&o("TooltipData").remove(this.refFromTooltipMixin.current)},n.$2=function(){var e;(e=this.state.root)==null||e.unmount()},t})(s.Component);l.default=c}),98);
-__d("TooltipLink.react",["TooltipMixinClass.react","react"],(function(t,n,r,o,a,i,l){var e,s=e||(e=o("react")),u=(function(e){function t(){return e.apply(this,arguments)||this}babelHelpers.inheritsLoose(t,e);var n=t.prototype;return n.render=function(){return s.jsx("a",babelHelpers.extends({},this.props,{ref:this.refFromTooltipMixin,children:this.props.children}))},t})(r("TooltipMixinClass.react"));l.default=u}),98);
-__d("sortBy",[],(function(t,n,r,o,a,i){"use strict";function e(e,t){var n=e.map(function(e,n){return{index:n,sortValue:t(e),value:e}});return n.sort(function(e,t){var n=e.sortValue,r=t.sortValue;return n>r?1:n<r?-1:e.index-t.index}),n.map(function(e){return e.value})}i.default=e}),66);
-__d("useDebouncedValue",["clearTimeout","react","react-compiler-runtime","setTimeout"],(function(t,n,r,o,a,i,l){"use strict";var e,s=e||(e=o("react")),u=s.useEffect,c=s.useState;function d(e,t){var n=o("react-compiler-runtime").c(4),a=c(e),i=a[0],l=a[1],s,d;return n[0]!==t||n[1]!==e?(s=function(){var n=r("setTimeout")(function(){return l(e)},t);return(function(){return r("clearTimeout")(n)})},d=[e,t],n[0]=t,n[1]=e,n[2]=s,n[3]=d):(s=n[2],d=n[3]),u(s,d),i}l.default=d}),98);
-__d("useIsMountedRef",["react","react-compiler-runtime"],(function(t,n,r,o,a,i,l){"use strict";var e,s=e||(e=o("react")),u=s.useLayoutEffect,c=s.useRef;function d(){var e=o("react-compiler-runtime").c(2),t=c(!1),n,r;return e[0]===Symbol.for("react.memo_cache_sentinel")?(n=function(){return t.current=!0,(function(){t.current=!1})},r=[],e[0]=n,e[1]=r):(n=e[0],r=e[1]),u(n,r),t}l.default=d}),98);
-__d("useUniqueID",["uniqueID","useUnsafeRef_DEPRECATED"],(function(t,n,r,o,a,i,l){"use strict";var e;function s(){var t=(e||(e=r("useUnsafeRef_DEPRECATED")))(null);return t.current===null&&(t.current=r("uniqueID")()),t.current}l.default=s}),98);
+__d(
+  "compareDOMOrder",
+  [],
+  function (t, n, r, o, a, i) {
+    "use strict";
+    function e(e, t) {
+      return e.compareDocumentPosition(t) & Node.DOCUMENT_POSITION_FOLLOWING
+        ? -1
+        : 1;
+    }
+    i.default = e;
+  },
+  66,
+);
+__d(
+  "useRefEffect",
+  ["react"],
+  function (t, n, r, o, a, i, l) {
+    "use strict";
+    var e,
+      s = e || (e = o("react")),
+      u = s.useCallback,
+      c = s.useRef;
+    function d(e, t) {
+      var n = c(null);
+      return u(function (t) {
+        (n.current && (n.current(), (n.current = null)),
+          t != null && (n.current = e(t)));
+      }, t);
+    }
+    l.default = d;
+  },
+  98,
+);
+__d(
+  "createLayoutContext",
+  [
+    "compareDOMOrder",
+    "emptyFunction",
+    "react",
+    "react-compiler-runtime",
+    "useRefEffect",
+    "useUnsafeRef_DEPRECATED",
+  ],
+  function (t, n, r, o, a, i, l) {
+    "use strict";
+    var e,
+      s,
+      u = s || (s = o("react")),
+      c = s,
+      d = c.useContext,
+      m = c.useImperativeHandle,
+      p = c.useMemo,
+      _ = c.useReducer;
+    function f(t) {
+      var n = {
+          getLayout: function () {
+            return t;
+          },
+          dispatch: r("emptyFunction"),
+          nodes: new Map(),
+          values: [],
+        },
+        a = u.createContext(n);
+      function i(e) {
+        var t = o("react-compiler-runtime").c(11),
+          n = e.children,
+          r = e.imperativeRef,
+          i = e.value,
+          l = y(),
+          s = l[0],
+          c = l[1],
+          d = l[2],
+          p,
+          _;
+        (t[0] !== d
+          ? ((p = function () {
+              return {
+                forceUpdate: function () {
+                  return d();
+                },
+              };
+            }),
+            (_ = [d]),
+            (t[0] = d),
+            (t[1] = p),
+            (t[2] = _))
+          : ((p = t[1]), (_ = t[2])),
+          m(r, p, _));
+        var f;
+        t[3] !== d || t[4] !== s || t[5] !== i || t[6] !== c
+          ? ((f = { getLayout: i, dispatch: d, nodes: s, values: c }),
+            (t[3] = d),
+            (t[4] = s),
+            (t[5] = i),
+            (t[6] = c),
+            (t[7] = f))
+          : (f = t[7]);
+        var g = f,
+          h;
+        return (
+          t[8] !== n || t[9] !== g
+            ? ((h = u.jsx(a.Provider, { value: g, children: n })),
+              (t[8] = n),
+              (t[9] = g),
+              (t[10] = h))
+            : (h = t[10]),
+          h
+        );
+      }
+      function l(e) {
+        var t = o("react-compiler-runtime").c(2),
+          r;
+        return (
+          t[0] !== e
+            ? ((r = u.jsx(a.Provider, babelHelpers.extends({ value: n }, e))),
+              (t[0] = e),
+              (t[1] = r))
+            : (r = t[1]),
+          r
+        );
+      }
+      function s(n) {
+        var o = (e || (e = r("useUnsafeRef_DEPRECATED")))(null),
+          i = d(a),
+          l = i.getLayout,
+          s = i.dispatch,
+          u = i.nodes,
+          c = i.values,
+          m = p(
+            function () {
+              var e = o.current && u.get(o.current),
+                n = u.size;
+              return e != null
+                ? l({
+                    isFirst: e === 0,
+                    isLast: e >= 0 && e === n - 1,
+                    index: e,
+                    total: n,
+                    values: c,
+                    nodes: u,
+                  })
+                : t;
+            },
+            [l, u, c],
+          ),
+          _ = r("useRefEffect")(
+            function (e) {
+              return (
+                (o.current = e),
+                s({ add: e, value: n }),
+                function () {
+                  ((o.current = null), s({ remove: e }));
+                }
+              );
+            },
+            [s, n],
+          );
+        return [m, _];
+      }
+      function c(e) {
+        var t = o("react-compiler-runtime").c(4),
+          n = s(e.value),
+          r = n[0],
+          a = n[1],
+          i;
+        return (
+          t[0] !== r || t[1] !== e.children || t[2] !== a
+            ? ((i = e.children(r, a)),
+              (t[0] = r),
+              (t[1] = e.children),
+              (t[2] = a),
+              (t[3] = i))
+            : (i = t[3]),
+          i
+        );
+      }
+      return {
+        Provider: i,
+        Consumer: c,
+        Resetter: l,
+        useLayoutContext: s,
+        _context: a,
+      };
+    }
+    function g(e, t) {
+      var n = e.node,
+        o = t.node;
+      return r("compareDOMOrder")(n, o);
+    }
+    function h(e, t) {
+      var n = Array.from(e);
+      return (
+        t != null &&
+          (t.remove &&
+            (n = e.filter(function (e) {
+              var n = e.node;
+              return n !== t.remove;
+            })),
+          t.add &&
+            (n = n
+              .filter(function (e) {
+                var n = e.node;
+                return n !== t.add;
+              })
+              .concat({ node: t.add, value: t.value }))),
+        n.sort(g)
+      );
+    }
+    function y() {
+      var e = o("react-compiler-runtime").c(6),
+        t;
+      e[0] === Symbol.for("react.memo_cache_sentinel")
+        ? ((t = []), (e[0] = t))
+        : (t = e[0]);
+      var n = _(h, t),
+        r = n[0],
+        a = n[1],
+        i;
+      if (e[1] !== r) {
+        var l = new Map(),
+          s = [];
+        (r.forEach(function (e, t) {
+          var n = e.node,
+            r = e.value;
+          (l.set(n, t), s.push(r));
+        }),
+          (i = { nodes: l, values: s }),
+          (e[1] = r),
+          (e[2] = i));
+      } else i = e[2];
+      var u = i,
+        c = u.nodes,
+        d = u.values,
+        m;
+      return (
+        e[3] !== c || e[4] !== d
+          ? ((m = [c, d, a]), (e[3] = c), (e[4] = d), (e[5] = m))
+          : (m = e[5]),
+        m
+      );
+    }
+    l.default = f;
+  },
+  98,
+);
+__d(
+  "BUIPrivateButtonLayoutContext",
+  ["createLayoutContext"],
+  function (t, n, r, o, a, i, l) {
+    "use strict";
+    var e = r("createLayoutContext")({}),
+      s = e;
+    l.default = s;
+  },
+  98,
+);
+__d(
+  "CometVisualCompletionConstants",
+  ["VisualCompletionConstants"],
+  function (t, n, r, o, a, i, l) {
+    "use strict";
+    var e;
+    l.default = e || (e = r("VisualCompletionConstants"));
+  },
+  98,
+);
+__d(
+  "DialogPosition",
+  ["Vector"],
+  function (t, n, r, o, a, i, l) {
+    var e = 40,
+      s;
+    function u(t, n, o, a, i) {
+      (o === void 0 && (o = null),
+        a === void 0 && (a = !1),
+        i === void 0 && (i = !1));
+      var l = r("Vector").getViewportDimensions(),
+        u = !1;
+      if ((a && o && (u = o + n > l.y), o != null && !u)) return o;
+      if (s) return s;
+      var c = Math.floor(
+        i ? (l.y - n) / 2 : ((l.x + t) * (l.y - n)) / (4 * l.x),
+      );
+      return Math.max(c, e);
+    }
+    function c(e) {
+      s = e;
+    }
+    ((l.calculateTopMargin = u), (l.setFixedTopMargin = c));
+  },
+  98,
+);
+__d(
+  "TabIsolation",
+  ["Event", "Focus", "Keys", "TabbableElements", "containsNode"],
+  function (t, n, r, o, a, i, l) {
+    var e = [],
+      s = 0,
+      u = (function () {
+        function t(t) {
+          var n = this;
+          ((this.enable = function () {
+            (n.disable(),
+              e.unshift(n.$2),
+              (n.$1 = r("Event").listen(
+                window,
+                "keydown",
+                function (t) {
+                  e[0] === n.$2 && n.$4(t);
+                },
+                r("Event").Priority.URGENT,
+              )));
+          }),
+            (this.disable = function () {
+              if (n.$1) {
+                var t = e.indexOf(n.$2);
+                (t > -1 && e.splice(t, 1), n.$1.remove(), (n.$1 = null));
+              }
+            }),
+            (this.$3 = t),
+            (this.$1 = null),
+            (this.$2 = s++));
+        }
+        var n = t.prototype;
+        return (
+          (n.$4 = function (t) {
+            if (r("Event").getKeyCode(t) === r("Keys").TAB) {
+              var e = t.getTarget();
+              if (e) {
+                var n = o("TabbableElements").find(this.$3),
+                  a = n[0],
+                  i = n[n.length - 1],
+                  l = t.getModifiers(),
+                  s = l.shift;
+                s && e === a
+                  ? (t.preventDefault(), o("Focus").set(i))
+                  : ((!s && e === i) || !r("containsNode")(this.$3, e)) &&
+                    (t.preventDefault(), o("Focus").set(a));
+              }
+            }
+          }),
+          t
+        );
+      })();
+    l.default = u;
+  },
+  98,
+);
+__d(
+  "LayerTabIsolation",
+  ["TabIsolation"],
+  function (t, n, r, o, a, i, l) {
+    var e = (function () {
+      function e(e) {
+        ((this._layer = e),
+          (this._tabIsolation = null),
+          (this._subscriptions = null));
+      }
+      var t = e.prototype;
+      return (
+        (t.enable = function () {
+          var e = this._layer.getRoot();
+          if (e != null) {
+            var t = new (r("TabIsolation"))(e);
+            ((this._tabIsolation = t),
+              (this._subscriptions = [
+                this._layer.subscribe("show", t.enable.bind(t)),
+                this._layer.subscribe("hide", t.disable.bind(t)),
+              ]));
+          }
+        }),
+        (t.disable = function () {
+          for (; this._subscriptions && this._subscriptions.length; )
+            this._subscriptions.pop().unsubscribe();
+          (this._tabIsolation && this._tabIsolation.disable(),
+            (this._tabIsolation = null));
+        }),
+        e
+      );
+    })();
+    (Object.assign(e.prototype, { _subscriptions: [] }), (l.default = e));
+  },
+  98,
+);
+__d(
+  "LayerTogglerContext",
+  ["Toggler"],
+  function (t, n, r, o, a, i) {
+    var e = (function () {
+      "use strict";
+      function e(e) {
+        this._layer = e;
+      }
+      var t = e.prototype;
+      return (
+        (t.enable = function () {
+          ((this._root = this._layer.getRoot()),
+            n("Toggler").createInstance(this._root).setSticky(!1));
+        }),
+        (t.disable = function () {
+          (n("Toggler").destroyInstance(this._root), (this._root = null));
+        }),
+        e
+      );
+    })();
+    a.exports = e;
+  },
+  null,
+);
+__d(
+  "ScrollAwareDOM",
+  [
+    "ArbiterMixin",
+    "CSS",
+    "DOM",
+    "DOMDimensions",
+    "HTML",
+    "Vector",
+    "ViewportBounds",
+    "getDocumentScrollElement",
+    "getElementPosition",
+    "getViewportDimensions",
+    "isAsyncScrollQuery",
+    "isNode",
+  ],
+  function (t, n, r, o, a, i, l) {
+    var e;
+    function s(e, t) {
+      return function () {
+        var n = arguments;
+        m.monitor(arguments[e], function () {
+          t.apply(null, n);
+        });
+      };
+    }
+    function u(e) {
+      e instanceof Array || (e = [e]);
+      for (var t = 0; t < e.length; t++) {
+        var n = r("HTML").replaceJSONWrapper(e[t]);
+        if (n instanceof r("HTML")) return n.getRootNode();
+        if (r("isNode")(n)) return n;
+      }
+      return null;
+    }
+    function c(e) {
+      return r("getElementPosition")(e).y > r("ViewportBounds").getTop();
+    }
+    function d(e) {
+      var t =
+          r("getElementPosition")(e).y +
+          o("DOMDimensions").getElementDimensions(e).height,
+        n =
+          r("getViewportDimensions")().height - r("ViewportBounds").getBottom();
+      return t >= n;
+    }
+    var m = babelHelpers.extends(
+        {
+          monitor: function (t, n) {
+            if (r("isAsyncScrollQuery")()) return n();
+            var e = u(t);
+            if (e) {
+              var o = !!e.offsetParent;
+              if (o && (c(e) || d(e))) return n();
+              var a = r("Vector").getDocumentDimensions(),
+                i = n();
+              if (o || (e.offsetParent && !c(e))) {
+                var l = r("Vector").getDocumentDimensions().sub(a),
+                  s = { delta: l, target: e };
+                m.inform("scroll", s) !== !1 &&
+                  l.scrollElementBy(r("getDocumentScrollElement")());
+              }
+              return i;
+            } else return n();
+          },
+          replace: function (t, n) {
+            var e = u(n);
+            return (
+              (!e || o("CSS").hasClass(e, "hidden_elem")) && (e = t),
+              m.monitor(e, function () {
+                r("DOM").replace(t, n);
+              })
+            );
+          },
+          prependContent: s(1, (e = r("DOM")).prependContent),
+          insertAfter: s(1, e.insertAfter),
+          insertBefore: s(1, e.insertBefore),
+          setContent: s(0, e.setContent),
+          appendContent: s(1, e.appendContent),
+          remove: s(0, e.remove),
+          empty: s(0, e.empty),
+        },
+        r("ArbiterMixin"),
+      ),
+      p = m;
+    l.default = p;
+  },
+  98,
+);
+__d(
+  "ModalLayer",
+  [
+    "csx",
+    "cx",
+    "Arbiter",
+    "ArbiterMixin",
+    "CSS",
+    "CometVisualCompletionConstants",
+    "DOM",
+    "DOMDimensions",
+    "DOMQuery",
+    "DataStore",
+    "Event",
+    "Scroll",
+    "ScrollAwareDOM",
+    "Style",
+    "UserAgent",
+    "Vector",
+    "debounceAcrossTransitions",
+    "ge",
+    "getDocumentScrollElement",
+    "isAsyncScrollQuery",
+    "removeFromArray",
+    "setTimeout",
+    "setTimeoutAcrossTransitions",
+  ],
+  function (t, n, r, o, a, i, l, s, u) {
+    var e = [],
+      c = null,
+      d = null,
+      m = null;
+    function p() {
+      return (
+        m ||
+          (m =
+            o("DOMQuery").scry(document.body, "._li")[0] ||
+            r("ge")("FB4BResponsiveMain")),
+        m
+      );
+    }
+    function _(e) {
+      var t = { position: r("Vector").getScrollPosition(), listener: void 0 },
+        n = e.offsetTop - t.position.y;
+      (o("CSS").addClass(e, "_31e"),
+        p().id !== "FB4BResponsiveMain" && r("Style").set(e, "top", n + "px"),
+        r("Arbiter").inform("reflow"),
+        (t.listener = r("ScrollAwareDOM").subscribe("scroll", function (n, a) {
+          if (o("DOMQuery").contains(e, a.target)) {
+            var i = e.offsetTop - a.delta.y;
+            return (
+              r("Style").set(e, "top", i + "px"),
+              (t.position = t.position.add(a.delta)),
+              !1
+            );
+          }
+          return !0;
+        })),
+        o("DataStore").set(e, "ModalLayerData", t));
+    }
+    function f(e, t) {
+      var n = o("DataStore").get(e, "ModalLayerData");
+      if (n) {
+        var a = function () {
+          if (
+            (o("CSS").removeClass(e, "_31e"), r("Style").set(e, "top", ""), t)
+          ) {
+            var a = r("getDocumentScrollElement")();
+            (o("Scroll").setTop(a, n.position.y),
+              o("Scroll").getTop(a) !== n.position.y &&
+                (o("Scroll").setTop(a, n.position.y + 1),
+                o("Scroll").setTop(a, n.position.y)));
+          }
+          (r("Arbiter").inform("reflow"),
+            n.listener.unsubscribe(),
+            (n.listener = null),
+            o("DataStore").remove(e, "ModalLayerData"));
+        };
+        if (t && r("isAsyncScrollQuery")()) {
+          var i = r("DOM").create("div", { className: "_42w" });
+          (r("Style").set(i, "height", e.offsetHeight + "px"),
+            r("DOM").appendContent(document.body, i));
+          var l = r("getDocumentScrollElement")();
+          (o("Scroll").setTop(l, n.position.y),
+            (t = !1),
+            r("setTimeout")(function () {
+              (a(), r("DOM").remove(i));
+            }, 0));
+        } else a();
+      }
+    }
+    function g() {
+      var e = p();
+      e != null && !o("CSS").matchesSelector(e, "._31e") && _(e);
+    }
+    function h() {
+      e.length || f(p(), !0);
+    }
+    function y() {
+      for (var t = e.length; t--; ) {
+        var n = e[t],
+          r = n.getLayerRoot();
+        if (r) {
+          C(r, 0);
+          var a = n.getLayerContentRoot();
+          if (a) {
+            var i =
+              a.offsetWidth +
+              o("DOMDimensions").measureElementBox(a, "width", !1, !1, !0);
+            C(r, i);
+          }
+        }
+      }
+    }
+    function C(e, t) {
+      r("Style").set(e, "min-width", t + (t ? "px" : ""));
+    }
+    var b = (function () {
+      function t(e) {
+        ((this._layer = e), (this._enabled = !1));
+      }
+      var n = t.prototype;
+      return (
+        (n.enable = function () {
+          var e = this;
+          p() &&
+            ((this._subscription = this._layer.subscribe(
+              ["show", "hide"],
+              function (t) {
+                t == "show" ? e._addModal() : e._removeModal();
+              },
+            )),
+            this._layer.isShown() && this._addModal(),
+            (this._enabled = !0));
+        }),
+        (n.disable = function () {
+          p() &&
+            (this._subscription && this._subscription.unsubscribe(),
+            this._layer.isShown() && this._removeModal(),
+            (this._enabled = !1));
+        }),
+        (n._addModal = function () {
+          var n = this.getLayerRoot();
+          (o("CSS").addClass(n, "_3qw"),
+            this._layer.hasWash() &&
+              ((this._wash = r("DOM").create("div", { className: "_3ixn" })),
+              r("DOM").prependContent(n, this._wash)),
+            n &&
+              this._layer._config.ignoreVC &&
+              n.setAttribute(
+                r("CometVisualCompletionConstants").ATTRIBUTE_NAME,
+                r("CometVisualCompletionConstants").IGNORE,
+              ));
+          var a = e[e.length - 1];
+          a ? _(a.getLayerRoot()) : g();
+          var i = r("getDocumentScrollElement")();
+          if ((o("Scroll").setTop(i, 0), !e.length)) {
+            var l = r("debounceAcrossTransitions")(y, 100);
+            ((c = r("Event").listen(window, "resize", l)),
+              (d = r("Arbiter").subscribe("reflow", l)));
+          }
+          (e.push(this), t.inform("show", this), r("setTimeout")(y, 0));
+        }),
+        (n._removeModal = function () {
+          var n = this,
+            a = this.getLayerRoot();
+          (o("CSS").removeClass(a, "_3qw"),
+            this._layer.hasWash() &&
+              (r("DOM").remove(this._wash), (this._wash = null)),
+            C(a, 0));
+          var i = this === e[e.length - 1];
+          (r("removeFromArray")(e, this),
+            e.length ||
+              (c && c.remove(), (c = null), d && d.unsubscribe(), (d = null)));
+          var l, s;
+          (r("UserAgent").isBrowser("Safari") &&
+            ((l = r("Event").listen(
+              document.documentElement,
+              "mousewheel",
+              r("Event").prevent,
+            )),
+            (s = l.remove.bind(l))),
+            r("setTimeoutAcrossTransitions")(function () {
+              var o = e[e.length - 1];
+              (o
+                ? (f(o.getLayerRoot(), i), t.inform("show", o))
+                : (h(), t.inform("hide", n)),
+                e.length && r("setTimeout")(y, 0),
+                r("UserAgent").isBrowser("Safari") &&
+                  r("setTimeout")(function () {
+                    s();
+                  }, 0));
+            }, 200));
+        }),
+        (n.getLayerRoot = function () {
+          return this._enabled ? this._layer.getRoot() : null;
+        }),
+        (n.getLayerContentRoot = function () {
+          return this._enabled ? this._layer.getContentRoot() : null;
+        }),
+        (t.getTopmostModalLayer = function () {
+          return e[e.length - 1];
+        }),
+        t
+      );
+    })();
+    (Object.assign(b, r("ArbiterMixin")), (l.default = b));
+  },
+  98,
+);
+__d(
+  "DialogX",
+  [
+    "cx",
+    "fbt",
+    "Arbiter",
+    "CSS",
+    "DOMQuery",
+    "DialogPosition",
+    "Event",
+    "JSXDOM",
+    "Layer",
+    "LayerAutoFocus",
+    "LayerButtons",
+    "LayerFormHooks",
+    "LayerRefocusOnHide",
+    "LayerTabIsolation",
+    "LayerTogglerContext",
+    "ModalLayer",
+    "Style",
+    "Vector",
+    "debounce",
+    "getOrCreateDOMID",
+    "goURI",
+    "isTruthy",
+    "shield",
+  ],
+  function (t, n, r, o, a, i, l, s, u) {
+    var e = (function (e) {
+        function t() {
+          return e.apply(this, arguments) || this;
+        }
+        babelHelpers.inheritsLoose(t, e);
+        var n = t.prototype;
+        return (
+          (n._configure = function (n, a) {
+            var t = this;
+            e.prototype._configure.call(this, n, a);
+            var i = this.getRoot();
+            if ((i != null && o("CSS").addClass(i, "_4-hy"), n.autohide))
+              var l = this.subscribe("show", function () {
+                (l.unsubscribe(),
+                  window.setTimeout(r("shield")(t.hide, t), n.autohide));
+              });
+            if (n.redirectURI)
+              var s = this.subscribe("hide", function () {
+                s.unsubscribe();
+                var e = n.redirectURI;
+                e != null && r("goURI")(e);
+              });
+            ((this._fixedTopPosition = n.fixedTopPosition),
+              (this._ignoreFixedTopInShortViewport =
+                n.ignoreFixedTopInShortViewport),
+              (this._isVerticallyCentered = n.isVerticallyCentered));
+          }),
+          (n._getDefaultBehaviors = function () {
+            return e.prototype._getDefaultBehaviors
+              .call(this)
+              .concat(
+                [
+                  c,
+                  r("ModalLayer"),
+                  this._config.autofocus === !1 ? void 0 : r("LayerAutoFocus"),
+                  r("LayerButtons"),
+                  r("LayerFormHooks"),
+                  r("LayerTabIsolation"),
+                  r("LayerTogglerContext"),
+                  r("LayerRefocusOnHide"),
+                ].filter(r("isTruthy")),
+              );
+          }),
+          (n.hasWash = function () {
+            var e;
+            return (e = this._config.hasWash) != null ? e : !0;
+          }),
+          (n._buildWrapper = function (t, n) {
+            var e = t.xui ? "_4t2a" : "_t _9l18",
+              a = t.xui ? "_59s7 _9l2g" : "_1yv";
+            this._innerContent = r("JSXDOM").div(null, n);
+            var i = { className: a, role: "dialog" };
+            if (t.labelledBy) i["aria-labelledby"] = t.labelledBy;
+            else if (t.label) i["aria-label"] = t.label;
+            else if (t.titleID) i["aria-labelledby"] = t.titleID;
+            else if (t.titleClass) {
+              var l = o("DOMQuery").scry(this._innerContent, t.titleClass);
+              if (l.length) {
+                var s = r("getOrCreateDOMID")(l[0]);
+                i["aria-labelledby"] = s;
+              } else i["aria-label"] = this._getDefaultLabel();
+            } else i["aria-label"] = this._getDefaultLabel();
+            var u = { className: e };
+            return (
+              t["data-testid"] && (u["data-testid"] = t["data-testid"]),
+              (this._wrapper = r("JSXDOM").div(
+                i,
+                r("JSXDOM").div(u, this._innerContent),
+              )),
+              t.width != null && this.setWidth(t.width),
+              t.height != null && this.setHeight(t.height),
+              r("JSXDOM").div({ className: "_10" }, this._wrapper)
+            );
+          }),
+          (n._getDefaultLabel = function () {
+            return u._(/*BTDS*/ "N\u1ed9i dung h\u1ed9p tho\u1ea1i");
+          }),
+          (n.getContentRoot = function () {
+            return this._wrapper;
+          }),
+          (n.getInnerContent = function () {
+            return this._innerContent;
+          }),
+          (n.updatePosition = function () {
+            var e,
+              t,
+              n = r("Vector").getElementDimensions(this._wrapper),
+              a = o("DialogPosition").calculateTopMargin(
+                n.x,
+                n.y,
+                this._fixedTopPosition,
+                (e = this._ignoreFixedTopInShortViewport) != null ? e : !1,
+                (t = this._isVerticallyCentered) != null ? t : !1,
+              );
+            return (
+              r("Style").set(this._wrapper, "margin-top", a + "px"),
+              this.inform("update_position", { type: "DialogX", top: a }),
+              !0
+            );
+          }),
+          (n.setWidth = function (t) {
+            if (t === "100%")
+              ((this._width = void 0),
+                r("Style").set(this._wrapper, "width", ""));
+            else {
+              if (((t = Math.floor(t)), t === this._width)) return;
+              ((this._width = t),
+                r("Style").set(this._wrapper, "width", t + "px"));
+            }
+          }),
+          (n.getWidth = function () {
+            return this._width;
+          }),
+          (n.setHeight = function (t) {
+            ((t = Math.floor(t)),
+              t !== this._height &&
+                ((this._height = t),
+                r("Style").set(this._wrapper, "height", t + "px")));
+          }),
+          (n.getFixedTopPosition = function () {
+            return this._fixedTopPosition;
+          }),
+          (n.shouldIgnoreFixedTopInShortViewport = function () {
+            return this._ignoreFixedTopInShortViewport;
+          }),
+          t
+        );
+      })(r("Layer")),
+      c = (function () {
+        function e(e) {
+          ((this._subscription = null),
+            (this._resize = null),
+            (this._layer = e));
+        }
+        var t = e.prototype;
+        return (
+          (t.enable = function () {
+            var e = this;
+            this._subscription = this._layer.subscribe(
+              ["show", "hide"],
+              function (t) {
+                t === "show"
+                  ? (e._attach(),
+                    r("Arbiter").inform("layer_shown", { type: "DialogX" }))
+                  : (e._detach(),
+                    r("Arbiter").inform("layer_hidden", { type: "DialogX" }));
+              },
+            );
+          }),
+          (t.disable = function () {
+            var e;
+            ((e = this._subscription) == null || e.unsubscribe(),
+              (this._subscription = null),
+              this._resize && this._detach());
+          }),
+          (t._attach = function () {
+            (this._layer.updatePosition(),
+              (this._resize = r("Event").listen(
+                window,
+                "resize",
+                r("debounce")(this._layer.updatePosition.bind(this._layer)),
+              )));
+          }),
+          (t._detach = function () {
+            var e;
+            ((e = this._resize) == null || e.remove(), (this._resize = null));
+          }),
+          e
+        );
+      })();
+    l.default = e;
+  },
+  226,
+);
+__d(
+  "GeoText.react",
+  [
+    "GeoBaseText.react",
+    "GeoPrivateMakeComponent",
+    "react",
+    "react-compiler-runtime",
+  ],
+  function (t, n, r, o, a, i, l) {
+    "use strict";
+    var e = ["children", "containerRef", "display"],
+      s,
+      u = s || (s = o("react"));
+    function c(t) {
+      var n = o("react-compiler-runtime").c(10),
+        a,
+        i,
+        l,
+        s;
+      n[0] !== t
+        ? ((a = t.children),
+          (i = t.containerRef),
+          (s = t.display),
+          (l = babelHelpers.objectWithoutPropertiesLoose(t, e)),
+          (n[0] = t),
+          (n[1] = a),
+          (n[2] = i),
+          (n[3] = l),
+          (n[4] = s))
+        : ((a = n[1]), (i = n[2]), (l = n[3]), (s = n[4]));
+      var c = s === void 0 ? "inline" : s,
+        d;
+      return (
+        n[5] !== a || n[6] !== i || n[7] !== c || n[8] !== l
+          ? ((d = u.jsx(
+              r("GeoBaseText.react"),
+              babelHelpers.extends(
+                { color: "value", display: c, size: "value" },
+                l,
+                { ref: i, children: a },
+              ),
+            )),
+            (n[5] = a),
+            (n[6] = i),
+            (n[7] = c),
+            (n[8] = l),
+            (n[9] = d))
+          : (d = n[9]),
+        d
+      );
+    }
+    var d = o("GeoPrivateMakeComponent").makeGeoComponent("GeoText", c);
+    l.default = d;
+  },
+  98,
+);
+__d(
+  "LayerAutoFocusReact",
+  ["focusWithinLayer"],
+  function (t, n, r, o, a, i, l) {
+    "use strict";
+    var e = (function () {
+      function e(e) {
+        ((this._layer = e), (this._subscription = null));
+      }
+      var t = e.prototype;
+      return (
+        (t.enable = function () {
+          var e = this;
+          this._layer.containsReactComponent &&
+            (this._subscription = this._layer.subscribe(
+              "reactshow",
+              function () {
+                return e._focus();
+              },
+            ));
+        }),
+        (t.disable = function () {
+          this._subscription &&
+            (this._subscription.unsubscribe(), (this._subscription = null));
+        }),
+        (t._focus = function () {
+          var e = this._layer.getRoot();
+          e && r("focusWithinLayer")(e);
+        }),
+        e
+      );
+    })();
+    l.default = e;
+  },
+  98,
+);
+__d(
+  "LayerDestroyOnHide",
+  ["setTimeout"],
+  function (t, n, r, o, a, i, l) {
+    var e = (function () {
+      function e(e) {
+        ((this.$2 = null), (this.$1 = e));
+      }
+      var t = e.prototype;
+      return (
+        (t.enable = function () {
+          var e = this.$1.destroy.bind(this.$1);
+          this.$2 = this.$1.subscribe("hide", function () {
+            r("setTimeout")(e, 0);
+          });
+        }),
+        (t.disable = function () {
+          this.$2 && (this.$2.unsubscribe(), (this.$2 = null));
+        }),
+        e
+      );
+    })();
+    l.default = e;
+  },
+  98,
+);
+__d(
+  "LayerFadeOnHide",
+  [
+    "invariant",
+    "CSSFade",
+    "Layer",
+    "SubscriptionsHandler",
+    "UserAgent_DEPRECATED",
+    "clearTimeout",
+    "setTimeoutAcrossTransitions",
+  ],
+  function (t, n, r, o, a, i, l, s) {
+    var e = (function () {
+      function e(e) {
+        ((this.$1 = e),
+          (this.$3 = new (r("SubscriptionsHandler"))()),
+          (this.$2 = null));
+      }
+      var t = e.prototype;
+      return (
+        (t.enable = function () {
+          o("UserAgent_DEPRECATED").ie() < 9 ||
+            (this.$2 = this.$1.subscribe("starthide", this.$4.bind(this)));
+        }),
+        (t.disable = function () {
+          (this.$2 && (this.$2.unsubscribe(), (this.$2 = null)),
+            this.$3.release());
+        }),
+        (t.$5 = function () {
+          return 150;
+        }),
+        (t.$4 = function () {
+          var e = this,
+            t = !0,
+            n = r("Layer").subscribe("show", function () {
+              (n.unsubscribe(), (t = !1));
+            }),
+            o = r("setTimeoutAcrossTransitions")(function () {
+              (n.unsubscribe(), (n = null));
+              var r = function () {
+                e.$1.finishHide();
+              };
+              t ? e.$6(r) : r();
+            }, 0);
+          return (
+            this.$3.addSubscriptions({
+              remove: function () {
+                r("clearTimeout")(o);
+              },
+            }),
+            !1
+          );
+        }),
+        (t.$6 = function (t) {
+          var e = this.$1.getRoot();
+          (e != null || s(0, 70),
+            r("CSSFade").hide(e, {
+              callback: function () {
+                t();
+              },
+              duration: this.$5(),
+            }));
+        }),
+        (e.forDuration = function (n) {
+          return (function (e) {
+            function t() {
+              return e.apply(this, arguments) || this;
+            }
+            return (babelHelpers.inheritsLoose(t, e), t);
+          })(e);
+        }),
+        e
+      );
+    })();
+    l.default = e;
+  },
+  98,
+);
+__d(
+  "LayerFadeOnShow",
+  ["Bootloader", "Run", "emptyFunction", "ifRequired"],
+  function (t, n, r, o, a, i, l) {
+    var e = (function () {
+      function e(e) {
+        ((this._layer = e),
+          o("Run").onAfterLoad(function () {
+            r("Bootloader").loadModules(
+              ["CSSFade"],
+              r("emptyFunction"),
+              "LayerFadeOnShow",
+            );
+          }));
+      }
+      var t = e.prototype;
+      return (
+        (t.enable = function () {
+          var e = this;
+          this._subscriptions = [
+            this._layer.subscribe("show", function () {
+              return e._animate();
+            }),
+          ];
+        }),
+        (t.disable = function () {
+          if (this._subscriptions) {
+            for (; this._subscriptions.length; )
+              this._subscriptions.pop().unsubscribe();
+            this._subscriptions = null;
+          }
+        }),
+        (t._getDuration = function () {
+          return 100;
+        }),
+        (t._animate = function () {
+          var e = this,
+            t = this._layer.getRoot();
+          r("ifRequired")(
+            "CSSFade",
+            function (n) {
+              n.show(t, { duration: e._getDuration() });
+            },
+            function () {},
+          );
+        }),
+        (e.forDuration = function (n) {
+          var t = (function (e) {
+            function t() {
+              return e.apply(this, arguments) || this;
+            }
+            return (babelHelpers.inheritsLoose(t, e), t);
+          })(e);
+          return (
+            (t.prototype._getDuration = r("emptyFunction").thatReturns(n)),
+            t
+          );
+        }),
+        e
+      );
+    })();
+    (Object.assign(e.prototype, { _subscriptions: null }), (l.default = e));
+  },
+  98,
+);
+__d(
+  "RTLKeys",
+  ["Keys", "Locale"],
+  function (t, n, r, o, a, i, l) {
+    var e = null;
+    function s() {
+      return (e === null && (e = o("Locale").isRTL()), e);
+    }
+    var u = babelHelpers.objectWithoutPropertiesLoose(r("Keys"), [
+        "RIGHT",
+        "LEFT",
+      ]),
+      c = babelHelpers.extends({}, u, {
+        REAL_RIGHT: r("Keys").RIGHT,
+        REAL_LEFT: r("Keys").LEFT,
+        getLeft: function () {
+          return s() ? c.REAL_RIGHT : c.REAL_LEFT;
+        },
+        getRight: function () {
+          return s() ? c.REAL_LEFT : c.REAL_RIGHT;
+        },
+      }),
+      d = c;
+    l.default = d;
+  },
+  98,
+);
+__d(
+  "XUIDialogBody.react",
+  ["cx", "XUIText.react", "joinClasses", "react"],
+  function (t, n, r, o, a, i, l, s) {
+    var e,
+      u = e || (e = o("react")),
+      c = (function (e) {
+        function t() {
+          return e.apply(this, arguments) || this;
+        }
+        babelHelpers.inheritsLoose(t, e);
+        var n = t.prototype;
+        return (
+          (n.render = function () {
+            var e = "_4-i2" + (this.props.useCustomPadding ? "" : " _pig");
+            return u.jsx(
+              r("XUIText.react"),
+              babelHelpers.extends({}, this.props, {
+                className: r("joinClasses")(this.props.className, e),
+                display: "block",
+                size: this.props.fontSize,
+                children: this.props.children,
+              }),
+            );
+          }),
+          t
+        );
+      })(u.Component);
+    ((c.defaultProps = { fontSize: "medium" }), (l.default = c));
+  },
+  98,
+);
+__d(
+  "XUIButton.react",
+  ["cx", "AbstractButton.react", "XUISpinner.react", "joinClasses", "react"],
+  function (t, n, r, o, a, i, l, s) {
+    var e = [
+        "borderShade",
+        "loading",
+        "size",
+        "suppressed",
+        "use",
+        "buttonRef",
+      ],
+      u,
+      c = u || (u = o("react")),
+      d = "medium",
+      m = (function (t) {
+        function n() {
+          for (var e, n = arguments.length, r = new Array(n), o = 0; o < n; o++)
+            r[o] = arguments[o];
+          return (
+            (e = t.call.apply(t, [this].concat(r)) || this),
+            (e.$1 = c.createRef()),
+            babelHelpers.assertThisInitialized(e) ||
+              babelHelpers.assertThisInitialized(e)
+          );
+        }
+        babelHelpers.inheritsLoose(n, t);
+        var o = n.prototype;
+        return (
+          (o.focus = function () {
+            this.$1.current != null && this.$1.current.focus();
+          }),
+          (o.render = function () {
+            var t = this.props,
+              n = t.borderShade,
+              o = t.loading,
+              a = t.size,
+              i = t.suppressed,
+              l = t.use,
+              s = t.buttonRef,
+              u = babelHelpers.objectWithoutPropertiesLoose(t, e),
+              d =
+                "_4jy0" +
+                (a === "small" ? " _517i" : "") +
+                (a === "medium" ? " _4jy3" : "") +
+                (a === "large" ? " _4jy4" : "") +
+                (a === "xlarge" ? " _4jy5" : "") +
+                (a === "xxlarge" ? " _4jy6" : "") +
+                (l === "default" ? " _517h" : "") +
+                (l === "confirm" ? " _4jy1" : "") +
+                (l === "special" ? " _4jy2" : "") +
+                (l === "caution" ? " _9w8q" : "") +
+                (n === "light" ? " _51sy" : "") +
+                (n === "dark" ? " _9c6" : "") +
+                (i ? " _59pe" : "") +
+                (l === "confirm" || l === "special" || l === "caution"
+                  ? " selected"
+                  : "");
+            return c.jsx(
+              r("AbstractButton.react"),
+              babelHelpers.extends({}, u, {
+                label: o ? c.jsx(r("XUISpinner.react"), {}) : this.props.label,
+                className: r("joinClasses")(this.props.className, d),
+                ref: this.$1,
+                buttonRef: s,
+                disabled: !!this.props.disabled,
+              }),
+            );
+          }),
+          n
+        );
+      })(c.Component);
+    ((m.defaultProps = {
+      use: "default",
+      size: d,
+      borderShade: "light",
+      suppressed: !1,
+    }),
+      (l.default = m));
+  },
+  98,
+);
+__d(
+  "XUIDialogButton.react",
+  ["cx", "XUIButton.react", "joinClasses", "react"],
+  function (t, n, r, o, a, i, l, s) {
+    var e = ["action"],
+      u,
+      c = u || (u = o("react")),
+      d = (function (t) {
+        function n() {
+          return t.apply(this, arguments) || this;
+        }
+        babelHelpers.inheritsLoose(n, t);
+        var o = n.prototype;
+        return (
+          (o.render = function () {
+            var t = this.props,
+              n = t.action,
+              o = babelHelpers.objectWithoutPropertiesLoose(t, e),
+              a =
+                (n === "confirm" ? "layerConfirm" : "") +
+                (n === "cancel" ? " layerCancel" : "") +
+                (n === "button" ? " layerButton" : ""),
+              i = this.props.href;
+            return (
+              (n === "cancel" || (n === "button" && (i == null || i === ""))) &&
+                (i = "#"),
+              c.jsx(
+                r("XUIButton.react"),
+                babelHelpers.extends({}, o, {
+                  className: r("joinClasses")(this.props.className, a),
+                  href: i,
+                  role: "button",
+                }),
+              )
+            );
+          }),
+          n
+        );
+      })(c.Component);
+    l.default = d;
+  },
+  98,
+);
+__d(
+  "XUIDialogCancelButton.react",
+  ["fbt", "XUIDialogButton.react", "react"],
+  function (t, n, r, o, a, i, l, s) {
+    var e,
+      u = e || (e = o("react")),
+      c = (function (e) {
+        function t() {
+          return e.apply(this, arguments) || this;
+        }
+        babelHelpers.inheritsLoose(t, e);
+        var n = t.prototype;
+        return (
+          (n.render = function () {
+            return u.jsx(
+              r("XUIDialogButton.react"),
+              babelHelpers.extends({}, this.props, {
+                action: "cancel",
+                label: s._(/*BTDS*/ "H\u1ee7y"),
+              }),
+            );
+          }),
+          t
+        );
+      })(u.Component);
+    l.default = c;
+  },
+  226,
+);
+__d(
+  "XUIOverlayFooter.react",
+  ["cx", "joinClasses", "react"],
+  function (t, n, r, o, a, i, l, s) {
+    var e,
+      u = e || (e = o("react")),
+      c = (function (e) {
+        function t() {
+          return e.apply(this, arguments) || this;
+        }
+        babelHelpers.inheritsLoose(t, e);
+        var n = t.prototype;
+        return (
+          (n.render = function () {
+            return u.jsx(
+              "div",
+              babelHelpers.extends({}, this.props, {
+                className: r("joinClasses")(
+                  this.props.className,
+                  "_5lnf uiOverlayFooter",
+                ),
+                children: this.props.children,
+              }),
+            );
+          }),
+          t
+        );
+      })(u.Component);
+    l.default = c;
+  },
+  98,
+);
+__d(
+  "XUIDialogFooter.react",
+  [
+    "cx",
+    "LeftRight.react",
+    "XUIOverlayFooter.react",
+    "XUIText.react",
+    "joinClasses",
+    "react",
+  ],
+  function (t, n, r, o, a, i, l, s) {
+    var e = ["children", "leftContent"],
+      u,
+      c = u || (u = o("react")),
+      d = (function (t) {
+        function n() {
+          return t.apply(this, arguments) || this;
+        }
+        babelHelpers.inheritsLoose(n, t);
+        var o = n.prototype;
+        return (
+          (o.render = function () {
+            var t = "_5a8u" + (this.props.fullBleedBorder ? " _27qq" : ""),
+              n = this.props,
+              o = n.children,
+              a = n.leftContent,
+              i = babelHelpers.objectWithoutPropertiesLoose(n, e);
+            return c.jsx(
+              r("XUIOverlayFooter.react"),
+              babelHelpers.extends({}, i, {
+                className: r("joinClasses")(this.props.className, t),
+                children: c.jsx(r("XUIText.react"), {
+                  display: "block",
+                  fontSize: this.props.fontSize,
+                  children: c.jsxs(r("LeftRight.react"), {
+                    children: [
+                      c.jsx("div", { children: a }),
+                      c.jsx("div", { children: o }),
+                    ],
+                  }),
+                }),
+              }),
+            );
+          }),
+          n
+        );
+      })(c.Component);
+    ((d.defaultProps = { fontSize: "medium" }), (l.default = d));
+  },
+  98,
+);
+__d(
+  "XUIDialogOkayButton.react",
+  ["cx", "fbt", "XUIDialogButton.react", "joinClasses", "react"],
+  function (t, n, r, o, a, i, l, s, u) {
+    var e,
+      c = e || (e = o("react")),
+      d = (function (e) {
+        function t() {
+          return e.apply(this, arguments) || this;
+        }
+        babelHelpers.inheritsLoose(t, e);
+        var n = t.prototype;
+        return (
+          (n.render = function () {
+            return c.jsx(
+              r("XUIDialogButton.react"),
+              babelHelpers.extends({}, this.props, {
+                className: r("joinClasses")(this.props.className, "_2z1w"),
+                action: this.props.action,
+                label: u._(/*BTDS*/ "OK"),
+              }),
+            );
+          }),
+          t
+        );
+      })(c.Component);
+    l.default = d;
+  },
+  226,
+);
+__d(
+  "XUIDialogTitle.react",
+  [
+    "cx",
+    "fbt",
+    "LeftRight.react",
+    "XUICloseButton.react",
+    "joinClasses",
+    "react",
+  ],
+  function (t, n, r, o, a, i, l, s, u) {
+    var e = [
+        "closeButtonText",
+        "showCloseButton",
+        "closeButtonSize",
+        "closeButtonClassName",
+      ],
+      c,
+      d = c || (c = o("react")),
+      m = (function (t) {
+        function n() {
+          return t.apply(this, arguments) || this;
+        }
+        babelHelpers.inheritsLoose(n, t);
+        var o = n.prototype;
+        return (
+          (o.render = function () {
+            var t = null,
+              n = this.props,
+              o = n.closeButtonText,
+              a = n.showCloseButton,
+              i = n.closeButtonSize,
+              l = n.closeButtonClassName,
+              s = babelHelpers.objectWithoutPropertiesLoose(n, e);
+            a &&
+              (t = d.jsx(r("XUICloseButton.react"), {
+                size: i,
+                "data-testid": void 0,
+                label: o,
+                className: r("joinClasses")(l, "layerCancel _51-t _9l15"),
+                onClick: this.props.onCloseClick,
+              }));
+            var u = d.Children.toArray(this.props.children);
+            return d.jsx(
+              "div",
+              babelHelpers.extends({}, s, {
+                className: r("joinClasses")(
+                  this.props.className,
+                  "_4-i0 _9l16" + (a ? " _2gb3" : ""),
+                ),
+                children: d.jsxs(r("LeftRight.react"), {
+                  children: [
+                    d.jsx("h3", {
+                      className: "_52c9 _9l17",
+                      "data-hover": "tooltip",
+                      "data-tooltip-display": "overflow",
+                      children: u[0],
+                    }),
+                    d.jsxs("div", {
+                      className: "_51-u",
+                      children: [u.slice(1), t],
+                    }),
+                  ],
+                }),
+              }),
+            );
+          }),
+          n
+        );
+      })(d.Component);
+    ((m.defaultProps = {
+      closeButtonText: u._(/*BTDS*/ "\u0110\u00f3ng"),
+      showCloseButton: !0,
+      closeButtonSize: "medium",
+    }),
+      (l.default = m));
+  },
+  226,
+);
+__d(
+  "SimpleXUIDialog",
+  [
+    "cx",
+    "DialogX",
+    "LayerAutoFocusReact",
+    "LayerDestroyOnHide",
+    "LayerFadeOnHide",
+    "LayerFadeOnShow",
+    "LayerHideOnBlur",
+    "LayerHideOnEscape",
+    "LayerRefocusOnHide",
+    "XUIDialogBody.react",
+    "XUIDialogButton.react",
+    "XUIDialogCancelButton.react",
+    "XUIDialogFooter.react",
+    "XUIDialogOkayButton.react",
+    "XUIDialogTitle.react",
+    "joinClasses",
+    "react",
+    "uniqueID",
+  ],
+  function (t, n, r, o, a, i, l) {
+    "use strict";
+    var e,
+      s = e || (e = n("react")),
+      u = 445,
+      c = {
+        show: function (t, r, o, a) {
+          var e = s.jsx(n("XUIDialogOkayButton.react"), {
+            action: "cancel",
+            use: "confirm",
+          });
+          return c.showEx(t, r, e, o, a);
+        },
+        showConfirm: function (t, r, o, a) {
+          var e = !1,
+            i = s.jsx(n("XUIDialogOkayButton.react"), {
+              action: "cancel",
+              className: a && a.autofocusConfirm ? "autofocus" : "",
+              use: "confirm",
+              onClick: function () {
+                e = !0;
+              },
+              "data-testid": void 0,
+            });
+          a &&
+            a.confirmBtnTxt &&
+            (i = s.jsx(n("XUIDialogButton.react"), {
+              className: n("joinClasses")(
+                a && a.autofocusConfirm ? "autofocus" : "",
+                "_2z1w",
+              ),
+              action: "cancel",
+              use: "confirm",
+              label: a.confirmBtnTxt,
+              onClick: function () {
+                e = !0;
+              },
+              "data-testid": void 0,
+            }));
+          var l = s.jsxs("div", {
+            children: [
+              s.jsx(n("XUIDialogCancelButton.react"), {
+                onClick: function () {
+                  e = !1;
+                },
+                "data-testid": void 0,
+              }),
+              i,
+            ],
+          });
+          function u() {
+            o && o(e);
+          }
+          return c.showEx(t, r, l, u, a);
+        },
+        showEx: function (t, r, o, a, i) {
+          i = i || {};
+          var e = [
+            n("LayerDestroyOnHide"),
+            n("LayerFadeOnShow"),
+            n("LayerFadeOnHide"),
+            n("LayerHideOnEscape"),
+            n("LayerRefocusOnHide"),
+          ];
+          (i.hideOnBlur !== !1 && e.push(n("LayerHideOnBlur")),
+            i.useReactFocusBehavior && e.push(n("LayerAutoFocusReact")));
+          var l = {
+            width: i.width || u,
+            xui: !0,
+            addedBehaviors: e,
+            causalElement: i.causalElement,
+          };
+          if (r) {
+            var c = n("uniqueID")();
+            ((l.titleID = c),
+              (r = s.jsx(n("XUIDialogTitle.react"), {
+                showCloseButton: i.showCloseButton !== !1,
+                id: c,
+                children: r,
+              })));
+          }
+          o &&
+            (o = s.jsx(n("XUIDialogFooter.react"), {
+              "data-testid": void 0,
+              leftContent: i.leftContent,
+              children: o,
+            }));
+          var d = s.jsxs("div", {
+              children: [
+                r,
+                s.jsx(n("XUIDialogBody.react"), {
+                  "data-testid": void 0,
+                  children: t,
+                }),
+                o,
+              ],
+            }),
+            m = new (n("DialogX"))(l, d);
+          return (a && m.subscribe("hide", a), m.show(), m);
+        },
+      };
+    a.exports = c;
+  },
+  null,
+);
+__d(
+  "TooltipMixinClass.react",
+  ["DOM", "ReactDOM", "TooltipData", "react"],
+  function (t, n, r, o, a, i, l) {
+    var e,
+      s = e || (e = o("react"));
+    function u(e) {
+      var t = e.tooltip;
+      return t != null && s.isValidElement(t);
+    }
+    var c = (function (e) {
+      function t() {
+        for (var t, n = arguments.length, o = new Array(n), a = 0; a < n; a++)
+          o[a] = arguments[a];
+        return (
+          (t = e.call.apply(e, [this].concat(o)) || this),
+          (t.state = {
+            tooltipContainer: u(t.props) ? r("DOM").create("div") : null,
+          }),
+          (t.refFromTooltipMixin = s.createRef()),
+          babelHelpers.assertThisInitialized(t) ||
+            babelHelpers.assertThisInitialized(t)
+        );
+      }
+      (babelHelpers.inheritsLoose(t, e),
+        (t.getDerivedStateFromProps = function (t, n) {
+          var e = u(t),
+            a = n.tooltipContainer;
+          if (a && !e) return { tooltipContainer: null, root: void 0 };
+          if (!a && e) {
+            var i = r("DOM").create("div"),
+              l = o("ReactDOM").createRoot(i);
+            return { tooltipContainer: i, root: l };
+          }
+          return null;
+        }));
+      var n = t.prototype;
+      return (
+        (n.componentDidMount = function () {
+          this.$1();
+        }),
+        (n.componentDidUpdate = function (t, n) {
+          (n.tooltipContainer && !this.state.tooltipContainer && this.$2(),
+            this.$1());
+        }),
+        (n.$1 = function () {
+          var e = this.state.tooltipContainer,
+            t = this.props.tooltip;
+          if (t != null && s.isValidElement(t) && e != null) {
+            var n,
+              r = function () {
+                return t;
+              };
+            (n = this.state.root) == null || n.render(s.jsx(r, {}));
+          } else e = this.props.tooltip;
+          e != null && this.refFromTooltipMixin.current != null
+            ? o("TooltipData").set(
+                this.refFromTooltipMixin.current,
+                e,
+                this.props.position,
+                this.props.alignH,
+              )
+            : this.refFromTooltipMixin.current != null &&
+              o("TooltipData").remove(this.refFromTooltipMixin.current);
+        }),
+        (n.componentWillUnmount = function () {
+          (this.state.tooltipContainer && this.$2(),
+            this.refFromTooltipMixin.current != null &&
+              o("TooltipData").remove(this.refFromTooltipMixin.current));
+        }),
+        (n.$2 = function () {
+          var e;
+          (e = this.state.root) == null || e.unmount();
+        }),
+        t
+      );
+    })(s.Component);
+    l.default = c;
+  },
+  98,
+);
+__d(
+  "TooltipLink.react",
+  ["TooltipMixinClass.react", "react"],
+  function (t, n, r, o, a, i, l) {
+    var e,
+      s = e || (e = o("react")),
+      u = (function (e) {
+        function t() {
+          return e.apply(this, arguments) || this;
+        }
+        babelHelpers.inheritsLoose(t, e);
+        var n = t.prototype;
+        return (
+          (n.render = function () {
+            return s.jsx(
+              "a",
+              babelHelpers.extends({}, this.props, {
+                ref: this.refFromTooltipMixin,
+                children: this.props.children,
+              }),
+            );
+          }),
+          t
+        );
+      })(r("TooltipMixinClass.react"));
+    l.default = u;
+  },
+  98,
+);
+__d(
+  "sortBy",
+  [],
+  function (t, n, r, o, a, i) {
+    "use strict";
+    function e(e, t) {
+      var n = e.map(function (e, n) {
+        return { index: n, sortValue: t(e), value: e };
+      });
+      return (
+        n.sort(function (e, t) {
+          var n = e.sortValue,
+            r = t.sortValue;
+          return n > r ? 1 : n < r ? -1 : e.index - t.index;
+        }),
+        n.map(function (e) {
+          return e.value;
+        })
+      );
+    }
+    i.default = e;
+  },
+  66,
+);
+__d(
+  "useDebouncedValue",
+  ["clearTimeout", "react", "react-compiler-runtime", "setTimeout"],
+  function (t, n, r, o, a, i, l) {
+    "use strict";
+    var e,
+      s = e || (e = o("react")),
+      u = s.useEffect,
+      c = s.useState;
+    function d(e, t) {
+      var n = o("react-compiler-runtime").c(4),
+        a = c(e),
+        i = a[0],
+        l = a[1],
+        s,
+        d;
+      return (
+        n[0] !== t || n[1] !== e
+          ? ((s = function () {
+              var n = r("setTimeout")(function () {
+                return l(e);
+              }, t);
+              return function () {
+                return r("clearTimeout")(n);
+              };
+            }),
+            (d = [e, t]),
+            (n[0] = t),
+            (n[1] = e),
+            (n[2] = s),
+            (n[3] = d))
+          : ((s = n[2]), (d = n[3])),
+        u(s, d),
+        i
+      );
+    }
+    l.default = d;
+  },
+  98,
+);
+__d(
+  "useIsMountedRef",
+  ["react", "react-compiler-runtime"],
+  function (t, n, r, o, a, i, l) {
+    "use strict";
+    var e,
+      s = e || (e = o("react")),
+      u = s.useLayoutEffect,
+      c = s.useRef;
+    function d() {
+      var e = o("react-compiler-runtime").c(2),
+        t = c(!1),
+        n,
+        r;
+      return (
+        e[0] === Symbol.for("react.memo_cache_sentinel")
+          ? ((n = function () {
+              return (
+                (t.current = !0),
+                function () {
+                  t.current = !1;
+                }
+              );
+            }),
+            (r = []),
+            (e[0] = n),
+            (e[1] = r))
+          : ((n = e[0]), (r = e[1])),
+        u(n, r),
+        t
+      );
+    }
+    l.default = d;
+  },
+  98,
+);
+__d(
+  "useUniqueID",
+  ["uniqueID", "useUnsafeRef_DEPRECATED"],
+  function (t, n, r, o, a, i, l) {
+    "use strict";
+    var e;
+    function s() {
+      var t = (e || (e = r("useUnsafeRef_DEPRECATED")))(null);
+      return (t.current === null && (t.current = r("uniqueID")()), t.current);
+    }
+    l.default = s;
+  },
+  98,
+);
