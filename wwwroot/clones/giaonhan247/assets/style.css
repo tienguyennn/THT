@@ -1,0 +1,137 @@
+@font-face {
+  font-family: 'flow rounded';
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/flow/flow-rounded.woff");
+}
+
+.is-loading-product {
+  font-family: flow rounded, Roboto, Helvetica Neue, sans-serif !important;
+  /* opacity: .5; */
+}
+
+.is-loading-product .mz-product-price {
+  font-family: flow rounded, Roboto, Helvetica Neue, sans-serif;
+}
+
+img.aligncenter {
+  display: block;
+}
+
+.aligncenter {
+  clear: both;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.screen-reader-text {
+  display: none;
+}
+
+.mz-display-flex {
+  display: flex !important;
+}
+
+.mz-select-control.is-loading, .checkout-product-item-outer.is-loading {
+  position: relative;
+}
+
+.mz-select-control.is-loading, .checkout-product-item-outer.is-loading:before {
+  content: none;
+}
+
+.mz-select-control.is-loading, .checkout-product-item-outer.is-loading:before {
+  content: "";
+  /*background: hsla(0, 0%, 100%, .8) url('https://www.giaonhan247.com//wp-content/themes/giaonhan/static/dist/image/loading.gif') no-repeat center !important;*/
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  bottom: 0;
+  top: 0;
+  z-index: 3;
+  background-color: hsla(0, 0%, 100%, .4)
+}
+
+.mz-select-control.is-loading, .checkout-product-item-outer.is-loading2:before {
+  background: hsla(0, 0%, 100%, .8) url('https://www.giaonhan247.com//wp-content/themes/giaonhan/static/dist/image/loading.gif') no-repeat center !important;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed, .video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.cart-page-product-item-control-outer {
+  position: relative;
+}
+
+.my-alert {
+  margin-bottom: 15px;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 10px;
+  background: #ededed;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+}
+
+.-alert-warning {
+  border-color: #faebcc;
+  background: #fdfbee;
+  color: #8a6d3b;
+}
+
+.text--align-center {
+  text-align: center !important;
+}
+
+.review-post-wrapper ul li {
+  list-style-type: none;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.no-results:hover {
+  cursor: default;
+}
+
+._cursor-pointer {
+  cursor: pointer;
+}
+
+.z-index-999 {
+  z-index: 999 !important;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.disable-arrow::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.disable-arrow[type=number] {
+  -moz-appearance: textfield;
+}
+
+.is-disabled {
+  cursor: not-allowed;
+}
+
+button.is-disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
