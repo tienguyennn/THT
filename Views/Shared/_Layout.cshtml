@@ -376,6 +376,7 @@
       });
     </script>
     <link href="~/css/site.css" rel="stylesheet" />
+    @await RenderSectionAsync("Head", required: false)
   </head>
   <body
     class="site-default navigation-navigationen theme-default layout-homeen nav-breakpoint-xl navigation-hide com_t4pagebuilder view-page item-686"
@@ -463,6 +464,7 @@
         });
       }
     </script>
+    @await RenderSectionAsync("Scripts", required: false)
   </body>
   <!-- Mirrored from globallinkconsulting.sg/en by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Dec 2025 15:01:44 GMT -->
 </html>
